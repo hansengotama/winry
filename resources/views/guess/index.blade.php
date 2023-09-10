@@ -7,9 +7,7 @@
         <title>WINRY | Wedding Invitation</title>
     </head>
     <body>
-        <div id="app">
-            <home-component></home-component>
-        </div>
+        <div id="app"></div>
         @vite('resources/js/app.js')
     </body>
 </html>

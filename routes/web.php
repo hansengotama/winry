@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('guess.index');
 });
 
-Route::get('/test', function () {
+Route::get('/{pathMatch}', function () {
     return view('guess.index');
-});
+})->where('pathMatch', ".*");
