@@ -15,11 +15,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::namespace('App\Http\Controllers')->prefix('/auth')->group(function() {
-    Route::middleware('auth:sanctum')->group(function() {
-        Route::get('/user', 'AuthController@user');
-        Route::post('/logout', 'AuthController@logout');
+Route::namespace('App\Http\Controllers')->group(function() {
+    Route::prefix('/auth')->group(function() {
+        Route::post('/login', 'AuthController@login');    
+
+        Route::middleware('auth:sanctum')->group(function() {
+            Route::get('/user', 'AuthController@user');
+            Route::post('/logout', 'AuthController@logout');
+        });
     });
 
-    Route::post('/login', 'AuthController@login');    
+    Route::prefix('/guesses')->group(function() {
+        
+    });
+
+
+    Route::prefix('/guess-groups')->group(function() {
+        Route::middleware('auth:sanctum')->group(function() {
+            Route::get('/', 'GuessGroupController@get');
+            Route::post('/', 'GuessGroupController@create');
+            Route::put('/{id}', 'GuessGroupController@update');
+        });
+    });
 });
