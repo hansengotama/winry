@@ -25,16 +25,20 @@ Route::namespace('App\Http\Controllers')->group(function() {
         });
     });
 
-    Route::prefix('/guesses')->group(function() {
-        
-    });
 
-
-    Route::prefix('/guess-groups')->group(function() {
+    Route::prefix('/admin')->group(function() {
         Route::middleware('auth:sanctum')->group(function() {
-            Route::get('/', 'GuessGroupController@get');
-            Route::post('/', 'GuessGroupController@create');
-            Route::put('/{id}', 'GuessGroupController@update');
+            Route::prefix('/guesses')->group(function() {
+                Route::get('/', 'GuessController@get');
+                Route::post('/', 'GuessController@create');
+                Route::put('/{id}', 'GuessController@update');
+            });
+        
+            Route::prefix('/guess-groups')->group(function() {
+                Route::get('/', 'GuessGroupController@get');
+                Route::post('/', 'GuessGroupController@create');
+                Route::put('/{id}', 'GuessGroupController@update');
+            });
         });
     });
 });

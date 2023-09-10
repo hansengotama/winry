@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\GuessGroup;
 
 class Guess extends Model
 {
@@ -24,6 +25,6 @@ class Guess extends Model
     ];
 
     public function guessGroup() {
-        return $this->hasOne(guessGroup::class);
+        return $this->belongsTo(GuessGroup::class);
     }
 }

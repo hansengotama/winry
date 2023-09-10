@@ -58,7 +58,7 @@ class GuessGroupController extends Controller
 
         $guessGroup = $this->repo->find($id);
         if ($guessGroup == null) {
-            return $this->apiHelper->getErrorResponse(400, "Guess group not found", null);
+            return $this->apiHelper->getErrorResponse(404, "Guess group not found", null);
         }
 
         try {
