@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Brigitha Signature;
+    font-weight: normal;
+    src: url('/public/fonts/brigitha-signature.ttf');
+}
+
+@font-face {
+    font-family: Abhaya Libre;
+    font-weight: normal;
+    src: url('/public/fonts/AbhayaLibre-Regular.ttf');
+}
+
+@font-face {
+    font-family: Abhaya Libre;
+    font-weight: bold;
+    src: url('/public/fonts/AbhayaLibre-Bold.ttf');
+}
+
+body {
+    font-family: Abhaya Libre;
+}

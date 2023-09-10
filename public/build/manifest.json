@@ -1,11 +1,30 @@
 {
+  "public/fonts/AbhayaLibre-Bold.ttf": {
+    "file": "assets/AbhayaLibre-Bold-3ee6ec02.ttf",
+    "src": "public/fonts/AbhayaLibre-Bold.ttf"
+  },
+  "public/fonts/AbhayaLibre-Regular.ttf": {
+    "file": "assets/AbhayaLibre-Regular-b636a4f7.ttf",
+    "src": "public/fonts/AbhayaLibre-Regular.ttf"
+  },
+  "public/fonts/brigitha-signature.ttf": {
+    "file": "assets/brigitha-signature-4617127f.ttf",
+    "src": "public/fonts/brigitha-signature.ttf"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-4ed993c7.js",
+    "file": "assets/app-92bd42a3.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/js/app.css": {
+    "file": "assets/app-1bdf5321.css",
+    "src": "resources/js/app.css"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-d509cc8d.js",
+    "css": [
+      "assets/app-1bdf5321.css"
+    ],
+    "file": "assets/app-3253d1a7.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
