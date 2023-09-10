@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::namespace('App\Http\Controllers')->prefix('/auth')->group(function() {
-    Route::get('/check', 'AuthController@user');
+    Route::get('/check', 'AuthController@check');
     Route::post('/login', 'AuthController@login');    
 });

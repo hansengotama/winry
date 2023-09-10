@@ -19,7 +19,6 @@ class AuthController extends Controller
 
     public function check(Request $request): JsonResponse
     {
-        dd(1);
         dd(Auth::user());
         return 1;
     }
