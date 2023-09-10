@@ -40,8 +40,13 @@ class AuthController extends Controller
             return $this->apiHelper->getErrorResponse(400, "Credentials are not set correctly", null);
         }
 
-        $token = $request->user()->createToken('browser');
+        return $this->apiHelper->getResponse(200, ['token' => $request->user()->createToken('user')->plainTextToken]);
+    }
 
-        return $this->apiHelper->getResponse(200, $token);
+    public function logout(Request $request): JsonResponse
+    {
+        $request->user()->tokens()->delete();
+
+        return $this->apiHelper->getResponse(200, null);
     }
 }
