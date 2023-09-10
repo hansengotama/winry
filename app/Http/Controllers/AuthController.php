@@ -17,10 +17,9 @@ class AuthController extends Controller
         $this->apiHelper = $apiHelper;
     }
 
-    public function check(Request $request): JsonResponse
+    public function user(Request $request): JsonResponse
     {
-        dd(Auth::user());
-        return 1;
+        return $this->apiHelper->getResponse(200, Auth::user());
     }
 
 
@@ -41,17 +40,8 @@ class AuthController extends Controller
             return $this->apiHelper->getErrorResponse(400, "Credentials are not set correctly", null);
         }
 
-        $user = $request->user();
-        $accessToken = $user->createToken('Personal Access Token')->accessToken;
-        
-        $response["access_token"] = $accessToken->token;
+        $token = $request->user()->createToken('browser');
 
-        return $this->apiHelper->getResponse(200, $response);
-    }
-
-    public function logout() {
-        Auth::user()->token()->delete();
-
-        return $this->apiHelper->getResponse(200, null);
+        return $this->apiHelper->getResponse(200, $token);
     }
 }
