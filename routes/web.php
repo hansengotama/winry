@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('guess.index');
 });
 
-// Route::get('/{pathMatch}', function () {
-//     return view('guess.index');
-// })->where('pathMatch', ".*");
+Route::get('/admin/login', function () {
+    return view('admin.index');
+});
+
+Route::get('/admin/manage-guess', function () {
+    return view('admin.index');
+});
+
+Route::get('/admin/manage-guess-group', function () {
+    return view('admin.index');
+});
