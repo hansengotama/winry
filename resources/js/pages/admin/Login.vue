@@ -52,6 +52,7 @@
                     if (response.data != null && response.data.data.error == null) {
                         vueCookie.set('access_token', response.data.data.token)
                         this.redirectToManageGuess()
+                        this.$emit("updateIsLogin")
                         return;
                     }
 

@@ -23,7 +23,7 @@
             <router-view></router-view>
         </div>
     </div>
-    <router-view v-else></router-view>
+    <router-view @updateIsLogin="updateIsLogin" v-else></router-view>
 </template>
 
 <script>
@@ -58,8 +58,8 @@
                     }
 
                     if (response.error == null && response.data != null) {
-                        this.isLogin = true;
                         this.redirectToMenu('Admin Manage Guess');
+                        this.isLogin = true;
                         return;
                     }
                 })
@@ -79,11 +79,15 @@
                     name: routeName
                 })
             },
+            updateIsLogin() {
+                this.isLogin = true
+            },
             logout() {
                 requestUrl.post("/admin/auth/logout").then((response) => {
                     if (response.status == 200) {
                         this.redirectToLogin()
                         vueCookie.delete('access_token')
+                        this.isLogin = false
                     }
                 })
             },
