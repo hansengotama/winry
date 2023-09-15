@@ -9,6 +9,8 @@ use App\Http\Repositories\GuessRepository;
 use App\Http\Repositories\GuessGroupRepository;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Guess;
+use Illuminate\Support\Str;
+
 
 class GuessController extends Controller
 {
@@ -46,6 +48,8 @@ class GuessController extends Controller
             'guess_group_id' => 'required',
             'max_attendance' => 'required'
         ]);
+
+        $request->invitation_url = Str::random(18);
 
         if ($validator->fails()) {
             return $this->apiHelper->getErrorResponse(422, "Error Validation", $validator->errors());

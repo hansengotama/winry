@@ -6,7 +6,7 @@ use App\Models\Guess;
 use Illuminate\Http\Request;
 
 class GuessRepository {
-    public function get(?string $name, ?int $guessGroupId, ?boolean $isShowWishes) {
+    public function get(?string $name, ?int $guessGroupId, ?bool $isShowWishes) {
         $guess = Guess::query();
 
         if ($name != null) {
