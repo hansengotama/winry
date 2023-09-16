@@ -49,7 +49,7 @@ class GuestController extends Controller
             'max_attendance' => 'required'
         ]);
 
-        $request->invitation_url = Str::random(18);
+        $request->invitation_url = Str::random(8);
 
         if ($validator->fails()) {
             return $this->apiHelper->getErrorResponse(422, "Error Validation", $validator->errors());
