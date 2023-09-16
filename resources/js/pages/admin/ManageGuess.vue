@@ -32,7 +32,7 @@
                         <th v-html="constructBadgeHTML(guess.max_attendance)"></th>
                         <th>{{ guess.wishes == null ? '-' : guess.wishes }}</th>
                         <th v-html="constructShowWishesHTML(guess.is_show_wishes)"></th>
-                        <th><button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditGuess">Edit</button></th>
+                        <th><button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditGuess" @click="onClickUpdateGuess(guess)">Edit</button></th>
                         <th><button class="btn btn-outline-primary" @click="copyURL(guess.invitation_url)">URL</button></th>
                     </tr>
                 </tbody>
@@ -80,14 +80,29 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Guess</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="resetUpdateGuess()"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="name" class="form-control" placeholder="input name" v-model="updateGuess.name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Max Attendee</label>
+                            <input type="number" class="form-control" placeholder="input max attendee" v-model="updateGuess.maxAttendance">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Group</label>
+                            <select class="form-select" v-model="updateGuess.groupGuessId">
+                                <option value=null>choose group</option>
+                                <option :value=group.id v-for="group in groups" :key="group.id">{{ group.name }}</option>
+                            </select>
+                        </div>
+                        <div style="color:red" class="form-text">{{  updateGuessError }}</div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Edit</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="resetUpdateGuess()">Close</button>
+                        <button type="button" class="btn btn-primary" @click="submitUpdateGuess()">Edit</button>
                     </div>
                 </div>
             </div>
@@ -133,7 +148,14 @@
                     maxAttendance: null,
                     groupGuessId: null,
                 },
+                updateGuess: {
+                    id: null,
+                    name: null,
+                    maxAttendance: null,
+                    groupGuessId: null,
+                },
                 createGuessError: "",
+                updateGuessError: "",
                 copiedURL: ""
             }
         },
@@ -142,10 +164,22 @@
             this.getGuessGroup() 
         },
         methods: {
+            onClickUpdateGuess(guess) {
+                this.updateGuess.id = guess.id
+                this.updateGuess.name = guess.name
+                this.updateGuess.maxAttendance = guess.max_attendance
+                this.updateGuess.groupGuessId = guess.guess_group_id
+            },
             resetCreateGuess() {
+                this.updateGuess.id = null
                 this.createGuess.name = null
                 this.createGuess.maxAttendance = null
                 this.createGuess.groupGuessId = null
+            },
+            resetUpdateGuess() {
+                this.updateGuess.name = null
+                this.updateGuess.maxAttendance = null
+                this.updateGuess.groupGuessId = null
             },
             validateCreateGuess() {
                 if (this.validateName(this.createGuess.name) != null) {
@@ -165,6 +199,24 @@
 
                 return true
             },
+            validateUpdateGuess() {
+                if (this.validateName(this.updateGuess.name) != null) {
+                    this.updateGuessError = this.validateName(this.updateGuess.name)
+                    return false
+                }
+                
+                if (this.validateMaxAttendance(this.updateGuess.maxAttendance) != null) {
+                    this.updateGuessError = this.validateMaxAttendance(this.updateGuess.maxAttendance)
+                    return false
+                }
+
+                if (this.validateGroupGuessId(this.updateGuess.groupGuessId) != null) {
+                    this.updateGuessError = this.validateGroupGuessId(this.updateGuess.groupGuessId)
+                    return false
+                }
+
+                return true
+            },
             submitCreateGuess() {
                 const isSuccess = this.validateCreateGuess()
                 if (!isSuccess) {
@@ -173,6 +225,15 @@
 
                 this.createGuessError = ""
                 this.createGuessFunc()
+            },
+            submitUpdateGuess() {
+                const isSuccess = this.validateUpdateGuess()
+                if (!isSuccess) {
+                    return;
+                }
+
+                this.updateGuessError = ""
+                this.updateGuessFunc()
             },
             createGuessFunc() {
                 requestUrl.post("/admin/guesses", {
@@ -186,6 +247,32 @@
                         swal.fire(
                             'Success Add Guess!',
                             'URL:' + response.data.data.invitation_url,
+                            'success'
+                        )
+                        this.getGuesses()
+                        return;
+                    }
+
+                    swal.fire({
+                        title: 'Error!',
+                        text: 'Please try again!',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    })    
+                })
+            },
+            updateGuessFunc() {
+                requestUrl.put("/admin/guesses/" + this.updateGuess.id, {
+                    name: this.updateGuess.name,
+                    max_attendance: this.updateGuess.maxAttendance,
+                    guess_group_id: this.updateGuess.groupGuessId,
+                }).then((response) => {
+                    if (response.error == null && response.data != null) {
+                        this.resetUpdateGuess()
+                        $("#modalEditGuess").modal("hide")
+                        swal.fire(
+                            'Success Update Guess!',
+                            'Yey',
                             'success'
                         )
                         this.getGuesses()
