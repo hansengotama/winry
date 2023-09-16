@@ -16,7 +16,7 @@
                     </select>
                 </div>
                 <div style="flex: 1">
-                    <button class="btn btn-outline-primary" @click="getGuestes()">Filter</button>
+                    <button class="btn btn-outline-primary" @click="getGuests()">Filter</button>
                 </div>
             </div>
         </div>
@@ -25,6 +25,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col">No.</th>
                         <th scope="col">Name</th>
                         <th scope="col">Group</th>
                         <th scope="col">Email</th>
@@ -33,11 +34,12 @@
                         <th scope="col">Max Attendee</th>
                         <th scope="col">Wishes</th>
                         <th scope="col">Show Wishes</th>
-                        <th scope="col" colspan="2">Action</th>
+                        <th scope="col" colspan="3">Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr v-for="guest in guests" :key="guest.id" v-if="guests.length > 0">
+                    <tr v-for="guest, index in guests" :key="guest.id" v-if="guests.length > 0">
+                        <th>{{ index + 1 }}</th>
                         <th>{{ guest.name }}</th>
                         <th v-html="constructBadgeHTML(guest.guest_group.name)"></th>
                         <th>{{ guest.email == null ? '-' : guest.email }}</th>
@@ -48,6 +50,7 @@
                         <th v-html="constructShowWishesHTML(guest.is_show_wishes)"></th>
                         <th><button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditGuest" @click="onClickUpdateGuest(guest)">Edit</button></th>
                         <th><button class="btn btn-outline-primary" @click="copyURL(guest.invitation_url)">URL</button></th>
+                        <th><button class="btn btn-outline-danger" @click="onDeleteGuest(guest.id, guest.name)">Delete</button></th>
                     </tr>
                 </tbody>
             </table>
@@ -168,7 +171,7 @@
             }
         },
         mounted() {
-            this.getGuestes()
+            this.getGuests()
             this.getGuestGroup() 
         },
         methods: {
@@ -257,7 +260,7 @@
                             'URL:' + window.location.origin + '/invitations/' + response.data.data.invitation_url,
                             'success'
                         )
-                        this.getGuestes()
+                        this.getGuests()
                         return;
                     }
 
@@ -283,7 +286,7 @@
                             'Yey',
                             'success'
                         )
-                        this.getGuestes()
+                        this.getGuests()
                         return;
                     }
 
@@ -320,7 +323,7 @@
 
                 return null
             },
-            getGuestes() {
+            getGuests() {
                 const filterName = this.filter.name ?? ""
                 const filterGuestGroupId = this.filter.groupGuestId ?? ""
 
@@ -384,6 +387,42 @@
                 document.body.removeChild(textarea);
                 this.copiedURL = url
                 $('#successCopiedToast').toast('show');
+            },
+            onDeleteGuest(id, name) {
+                swal.fire({
+                    title: 'Are you sure want to delete "' + name + '"?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.deleteGuess(id)
+                    }
+                })
+            },
+            deleteGuess(id) {
+                requestUrl.post("/admin/guests/" + id + "/delete")
+                .then((response) => {
+                    if (response.error == null && response.data != null) {
+                        swal.fire(
+                            'Success Delete Guest!',
+                            'Yey',
+                            'success'
+                        )
+                        this.getGuests()
+                        return;
+                    }
+
+                    swal.fire({
+                        title: 'Error!',
+                        text: 'Please try again!',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    })    
+                })
             }
         }
     }

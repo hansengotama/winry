@@ -7,16 +7,17 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">No.</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr v-for="group in groups" :key="group.id" v-if="groups.length > 0">
-                        <th>{{ group.id }}</th>
+                    <tr v-for="group, index in groups" :key="group.id" v-if="groups.length > 0">
+                        <th>{{ index + 1 }}</th>
                         <th>{{ group.name }}</th>
                         <th><button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditGroup" @click="onClickUpdateGroup(group)">Edit</button></th>
+                        <th><button class="btn btn-outline-danger" @click="onDeleteGuestGroup(group.id, group.name)">Delete</button></th>
                     </tr>
                 </tbody>
             </table>
@@ -202,6 +203,42 @@
                     }
                 })
             },
+            onDeleteGuestGroup(id, name) {
+                swal.fire({
+                    title: 'Are you sure want to delete "' + name + '"?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.deleteGuessGroup(id)
+                    }
+                })
+            },
+            deleteGuessGroup(id) {
+                requestUrl.post("/admin/guest-groups/" + id + "/delete")
+                .then((response) => {
+                    if (response.error == null && response.data != null) {
+                        swal.fire(
+                            'Success Delete Group!',
+                            'Yey',
+                            'success'
+                        )
+                        this.getGuestGroup()
+                        return;
+                    }
+
+                    swal.fire({
+                        title: 'Error!',
+                        text: 'Please try again!',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    })    
+                })
+            }
         }
     }
 </script>
