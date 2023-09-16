@@ -34,8 +34,14 @@ class GuestController extends Controller
             $guestGroupId = (int) $guestGroupId;
         }
 
+
+        $page = (int) $request->get('page');
+        $perPage = (int) $request->get('per_page');
+        if($page == null) $page = 1;
+        if($perPage == null) $perPage = 10;
+
         try {
-            $guest = $this->repo->get($name, $guestGroupId, null);
+            $guest = $this->repo->get($page, $perPage, $name, $guestGroupId, null);
             return $this->apiHelper->getResponse(200, $guest);
         }catch (\Exception $e) {
             return $this->apiHelper->getErrorResponse(500, "Error on get guest", $e->getMessage());

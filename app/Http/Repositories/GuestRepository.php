@@ -4,9 +4,10 @@ namespace App\Http\Repositories;
 
 use App\Models\Guest;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class GuestRepository {
-    public function get(?string $name, ?int $guestGroupId, ?bool $isShowWishes) {
+    public function get(int $page, int $perPage, ?string $name, ?int $guestGroupId, ?bool $isShowWishes) {
         $guest = Guest::query();
 
         if ($name != null) {
@@ -21,7 +22,11 @@ class GuestRepository {
             $guest->where("is_show_wishes", $isShowWishes);
         }
 
-        return $guest->with("guestGroup")->get();
+        Paginator::currentPageResolver(function () use ($page) {
+            return $page;
+        });
+
+        return $guest->with("guestGroup")->paginate($perPage);
     }
 
     public function find(int $id): ?Guest {

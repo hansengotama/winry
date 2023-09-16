@@ -54,6 +54,8 @@
                     </tr>
                 </tbody>
             </table>
+            <paginate :paginateData="paginateData" @changePage="changePage" style="margin-top: 20px"></paginate>
+
             <div v-if="guests.length == 0" style="padding-top: 4px; text-align: center;">No data available</div>
         </div>
         
@@ -150,6 +152,7 @@
 <script>
     import requestUrl from "../../helper/request"
     import swal from 'sweetalert2';
+    import paginate from './../../shared/paginate.vue'
 
     export default {
         data() {
@@ -174,14 +177,27 @@
                 filter: {
                     name: null,
                     groupGuestId: null,
+                    page: 1,
+                },
+                paginateData: {
+                    currentPage: 0,
+                    lastPage: 0
                 }
             }
+        },
+        components: {
+            Paginate: paginate,
         },
         mounted() {
             this.getGuests()
             this.getGuestGroup() 
         },
         methods: {
+            changePage(page) {
+                this.filter.page = page
+
+                this.getGuests()
+            },
             onClickUpdateGuest(guest) {
                 this.updateGuest.id = guest.id
                 this.updateGuest.name = guest.name
@@ -336,10 +352,12 @@
             getGuests() {
                 const filterName = this.filter.name ?? ""
                 const filterGuestGroupId = this.filter.groupGuestId ?? ""
-
-                requestUrl.get("/admin/guests?name="+filterName+"&guest_group_id="+filterGuestGroupId).then((response) => {
+                
+                requestUrl.get("/admin/guests?name="+filterName+"&guest_group_id="+filterGuestGroupId+"&page="+this.filter.page).then((response) => {
                     if (response.status == 200) {
-                        this.guests = response.data.data
+                        this.guests = response.data.data.data
+                        this.paginateData.currentPage = response.data.data.current_page
+                        this.paginateData.lastPage = response.data.data.last_page
                     }
                 })
             },
