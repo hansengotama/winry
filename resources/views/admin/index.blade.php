@@ -12,6 +12,7 @@
     <body>
         <div id="app"></div>
 
+        <script src="https://kit.fontawesome.com/3d632f0777.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         @vite('resources/js/app.js')
     </body>

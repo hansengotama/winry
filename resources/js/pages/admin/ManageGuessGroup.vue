@@ -1,5 +1,8 @@
 <template>
-    <div class="test">Manage Guess Group</div>
+    <div style="border: 1px solid #dee2e6; padding: 20px; border-radius: 20px;">
+        <h3>Manage Guess Group</h3>
+        <button class="btn btn-outline-primary">+ Add</button>
+    </div>
 </template>
 
 <style>
@@ -13,25 +16,12 @@
 </style>
 
 <script>
-    import vueCookie from "vue-cookie"
     import requestUrl from "../../helper/request"
 
 
     export default {
         methods: {
-            logout() {
-                requestUrl.post("/admin/auth/logout").then((response) => {
-                    if (response.status == 200) {
-                        this.redirectToLogin()
-                        vueCookie.delete('access_token')
-                    }
-                })
-            },
-            redirectToLogin() {
-                this.$router.push({
-                    name: "Admin Login"
-                })
-            },
+            
         }
     }
 </script>
