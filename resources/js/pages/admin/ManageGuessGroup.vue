@@ -1,6 +1,6 @@
 <template>
     <div style="border: 1px solid #dee2e6; padding: 20px; border-radius: 20px;">
-        <h3>Manage Guess Group</h3>
+        <h3>Manage Group</h3>
         <button class="btn btn-outline-primary">+ Add</button>
     </div>
 </template>

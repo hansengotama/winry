@@ -13,7 +13,7 @@
                     <button class="nav-link" 
                             :class="(currentRoute == 'Admin Manage Guess Group') ? 'active' : ''"
                             @click="redirectToMenu('Admin Manage Guess Group')">
-                            Guess Group
+                            Group
                     </button>
                 </li>
                 <li class="nav-item">

@@ -1,9 +1,13 @@
 <template>
     <div style="border: 1px solid #dee2e6; padding: 20px; border-radius: 20px;">
         <h3>Manage Guess</h3>
-        <button class="btn btn-outline-primary" style="margin-top: 10px;">+ Add</button>
+        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalAddGuess" style="margin-top: 10px;">+ Add Guess</button>
 
-        <div class="table-responsive" style="padding-top: 20px;">
+        <div style="padding-top: 20px;">
+            12
+        </div>
+
+        <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -19,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr v-for="guess in guesses" :key="guess.id">
+                    <tr v-for="guess in guesses" :key="guess.id" v-if="guesses.length > 0">
                         <th>{{ guess.name }}</th>
                         <th v-html="constructBadgeHTML(guess.guess_group.name)"></th>
                         <th>{{ guess.email == null ? '-' : guess.email }}</th>
@@ -28,13 +32,80 @@
                         <th v-html="constructBadgeHTML(guess.max_attendance)"></th>
                         <th>{{ guess.wishes == null ? '-' : guess.wishes }}</th>
                         <th v-html="constructShowWishesHTML(guess.is_show_wishes)"></th>
-                        <th><button class="btn btn-outline-primary">Edit</button></th>
+                        <th><button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditGuess">Edit</button></th>
                         <th><button class="btn btn-outline-primary" @click="copyURL(guess.invitation_url)">URL</button></th>
                     </tr>
                 </tbody>
             </table>
+            <div v-if="guesses.length == 0" style="padding-top: 4px; text-align: center;">No data available</div>
         </div>
         
+        <!-- Modal Add -->
+        <div class="modal fade" id="modalAddGuess" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Guess</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="resetCreateGuess()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="name" class="form-control" placeholder="input name" v-model="createGuess.name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Max Attendee</label>
+                            <input type="number" class="form-control" placeholder="input max attendee" v-model="createGuess.maxAttendance">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Group</label>
+                            <select class="form-select" v-model="createGuess.groupGuessId">
+                                <option value=null>choose group</option>
+                                <option :value=group.id v-for="group in groups" :key="group.id">{{ group.name }}</option>
+                            </select>
+                        </div>
+                        <div style="color:red" class="form-text">{{  createGuessError }}</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="resetCreateGuess()">Close</button>
+                        <button type="button" class="btn btn-primary" @click="submitCreateGuess()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal Edit -->
+        <div class="modal fade" id="modalEditGuess" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Guess</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Copied Toast -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="successCopiedToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <i class="fa-regular fa-copy" style="margin-right: 6px;"></i>
+                    <strong class="me-auto">Copied to clipboard!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    {{ copiedURL }}
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -50,21 +121,117 @@
 
 <script>
     import requestUrl from "../../helper/request"
+    import swal from 'sweetalert2';
 
     export default {
         data() {
             return {
                 guesses: [],
+                groups: [],
+                createGuess: {
+                    name: null,
+                    maxAttendance: null,
+                    groupGuessId: null,
+                },
+                createGuessError: "",
+                copiedURL: ""
             }
         },
         mounted() {
             this.getGuesses()
+            this.getGuessGroup() 
         },
         methods: {
+            resetCreateGuess() {
+                this.createGuess.name = null
+                this.createGuess.maxAttendance = null
+                this.createGuess.groupGuessId = null
+            },
+            validateCreateGuess() {
+                if (this.validateName(this.createGuess.name) != null) {
+                    this.createGuessError = this.validateName(this.createGuess.name)
+                    return false
+                }
+                
+                if (this.validateMaxAttendance(this.createGuess.maxAttendance) != null) {
+                    this.createGuessError = this.validateMaxAttendance(this.createGuess.maxAttendance)
+                    return false
+                }
+
+                if (this.validateGroupGuessId(this.createGuess.groupGuessId) != null) {
+                    this.createGuessError = this.validateGroupGuessId(this.createGuess.groupGuessId)
+                    return false
+                }
+
+                return true
+            },
+            submitCreateGuess() {
+                const isSuccess = this.validateCreateGuess()
+                if (!isSuccess) {
+                    return;
+                }
+
+                this.createGuessError = ""
+                this.createGuessFunc()
+            },
+            createGuessFunc() {
+                requestUrl.post("/admin/guesses", {
+                    name: this.createGuess.name,
+                    max_attendance: this.createGuess.maxAttendance,
+                    guess_group_id: this.createGuess.groupGuessId,
+                }).then((response) => {
+                    if (response.error == null && response.data != null) {
+                        this.resetCreateGuess()
+                        $("#modalAddGuess").modal("hide")
+                        swal.fire(
+                            'Success Add Guess!',
+                            'URL:' + response.data.data.invitation_url,
+                            'success'
+                        )
+                        this.getGuesses()
+                        return;
+                    }
+
+                    swal.fire({
+                        title: 'Error!',
+                        text: 'Please try again!',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    })    
+                })
+            },
+            validateName(value) {
+                if (value == null) {
+                    return 'Name is required'
+                }
+
+                return null
+            },
+            validateMaxAttendance(value) {
+                if (value == null) {
+                    return 'Max Attendee is required'
+                }
+
+                return null
+            },
+            validateGroupGuessId(value) {
+                if (value == null) {
+                    return 'Group is required'
+                }
+
+                return null
+            },
             getGuesses() {
                 requestUrl.get("/admin/guesses").then((response) => {
                     if (response.status == 200) {
                         this.guesses = response.data.data
+                    }
+                })
+            },
+            getGuessGroup() {
+                requestUrl.get("/admin/guess-groups").then((response) => {
+                    if (response.status == 200) {
+                        this.groups = response.data.data
                     }
                 })
             },
@@ -112,6 +279,8 @@
 
                 // Remove the textarea from the DOM
                 document.body.removeChild(textarea);
+                this.copiedURL = url
+                $('#successCopiedToast').toast('show');
             }
         }
     }
