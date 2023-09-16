@@ -3,8 +3,22 @@
         <h3>Manage Guest</h3>
         <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalAddGuest" style="margin-top: 10px;">+ Add Guest</button>
 
-        <div style="padding-top: 20px;">
-            12
+        <div style="padding: 20px 0;">
+            <h4>Filter</h4>
+            <div style="display: flex; align-items: center; justify-content: space-around; flex-direction: row">
+                <div style="flex: 1">
+                    <input style="width: 90%;" type="name" class="form-control" placeholder="input name" v-model="filter.name">
+                </div>
+                <div style="flex: 1">
+                    <select style="width: 90%;" class="form-select" v-model="filter.groupGuestId">
+                        <option value=null>choose group</option>
+                        <option :value=group.id v-for="group in groups" :key="group.id">{{ group.name }}</option>
+                    </select>
+                </div>
+                <div style="flex: 1">
+                    <button class="btn btn-outline-primary" @click="getGuestes()">Filter</button>
+                </div>
+            </div>
         </div>
 
         <div class="table-responsive">
@@ -146,7 +160,11 @@
                 },
                 createGuestError: "",
                 updateGuestError: "",
-                copiedURL: ""
+                copiedURL: "",
+                filter: {
+                    name: null,
+                    groupGuestId: null,
+                }
             }
         },
         mounted() {
@@ -303,7 +321,10 @@
                 return null
             },
             getGuestes() {
-                requestUrl.get("/admin/guests").then((response) => {
+                const filterName = this.filter.name ?? ""
+                const filterGuestGroupId = this.filter.groupGuestId ?? ""
+
+                requestUrl.get("/admin/guests?name="+filterName+"&guest_group_id="+filterGuestGroupId).then((response) => {
                     if (response.status == 200) {
                         this.guests = response.data.data
                     }
