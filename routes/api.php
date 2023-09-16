@@ -33,12 +33,14 @@ Route::namespace('App\Http\Controllers')->group(function() {
                 Route::get('/', 'GuestController@get');
                 Route::post('/', 'GuestController@create');
                 Route::put('/{id}', 'GuestController@update');
+                Route::post('/{id}/delete', 'GuestController@delete');
             });
         
             Route::prefix('/guest-groups')->group(function() {
                 Route::get('/', 'GuestGroupController@get');
                 Route::post('/', 'GuestGroupController@create');
                 Route::put('/{id}', 'GuestGroupController@update');
+                Route::post('/{id}/delete', 'GuestGroupController@delete');
             });
         });
     });

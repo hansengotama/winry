@@ -109,4 +109,18 @@ class GuestController extends Controller
             return $this->apiHelper->getErrorResponse(404, "Invitation not found");
         }
     }
+
+    public function delete(int $id) {
+        $guest = $this->repo->find($id);
+        if ($guest == null) {
+            return $this->apiHelper->getErrorResponse(404, "Guest not found", null);
+        }
+        
+        try {
+            $this->repo->delete($id);
+            return $this->apiHelper->getResponse(200, null);
+        }catch (\Exception $e) {
+            return $this->apiHelper->getErrorResponse(500, "Error on delete guest", $e->getMessage());
+        }
+    }
 }

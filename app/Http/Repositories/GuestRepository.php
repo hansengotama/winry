@@ -49,4 +49,9 @@ class GuestRepository {
 
         return $guest->save();
     }
+
+    public function delete(int $id) {
+        $guest = Guest::find($id);
+        return $guest->delete();
+    }
 }

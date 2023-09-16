@@ -68,4 +68,18 @@ class GuestGroupController extends Controller
             return $this->apiHelper->getErrorResponse(500, "Error on create guest group", $e->getMessage());
         }
     }
+
+    public function delete(int $id) {
+        $guestGroup = $this->repo->find($id);
+        if ($guestGroup == null) {
+            return $this->apiHelper->getErrorResponse(404, "Guest group not found", null);
+        }
+
+        try {
+            $this->repo->delete($id);
+            return $this->apiHelper->getResponse(200, null);
+        }catch (\Exception $e) {
+            return $this->apiHelper->getErrorResponse(500, "Error on delete guest group", $e->getMessage());
+        }
+    }
 }

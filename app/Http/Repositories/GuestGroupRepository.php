@@ -26,4 +26,9 @@ class GuestGroupRepository {
 
         return $guestGroup->save();
     }
+
+    public function delete(int $id) {
+        $guestGroup = GuestGroup::find($id);
+        return $guestGroup->delete();
+    }
 }

@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>WINRY | Wedding Invitation</title>
+        <link rel="icon" href="/images/logo.png">
 
         @vite('resources/css/app.css')
     </head>
