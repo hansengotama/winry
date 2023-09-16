@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::namespace('App\Http\Controllers')->group(function() {
+    Route::get('/invitations/{token}', 'GuestController@getByGuest');
+
     Route::prefix('/admin/auth')->group(function() {
         Route::post('/login', 'AuthController@login');    
 
@@ -24,7 +26,6 @@ Route::namespace('App\Http\Controllers')->group(function() {
             Route::post('/logout', 'AuthController@logout');
         });
     });
-
 
     Route::prefix('/admin')->group(function() {
         Route::middleware('auth:sanctum')->group(function() {

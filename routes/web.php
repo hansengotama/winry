@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/invitations/{token}', function () {
+    return view('guest.index');
+});
+
+Route::get('/not-found', function () {
     return view('guest.index');
 });
 

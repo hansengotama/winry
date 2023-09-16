@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from './../pages/Home.vue';
+import InvitationPage from './../pages/invitation/Invitation.vue';
 import AdminLayout from './../pages/admin/Layout.vue';
 import AdminLogin from './../pages/admin/Login.vue';
 import AdminManageGuest from './../pages/admin/ManageGuest.vue';
@@ -8,8 +8,8 @@ import NotFound from './../pages/NotFound.vue';
 
 const routes = [
     {
-        path: '/',
-        component: Home
+        path: '/invitations/:token',
+        component: InvitationPage
     },
     {
         path: '/admin',
@@ -33,7 +33,8 @@ const routes = [
         ]
     },
     {
-        path: '/:pathMatch(.*)*',
+        name: "Not Found",
+        path: '/not-found',
         component: NotFound
     },
 ];

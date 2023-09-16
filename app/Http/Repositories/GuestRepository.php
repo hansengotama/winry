@@ -28,6 +28,10 @@ class GuestRepository {
         return Guest::find($id);
     }
 
+    public function findByToken(string $token): ?Guest {
+        return Guest::where("invitation_url", $token)->first();
+    }
+
     public function create(Request $request): Guest {
         return Guest::create([
             "name" => $request->name,

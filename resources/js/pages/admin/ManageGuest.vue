@@ -254,7 +254,7 @@
                         $("#modalAddGuest").modal("hide")
                         swal.fire(
                             'Success Add Guest!',
-                            'URL:' + window.location.origin + '/invitation/' + response.data.data.invitation_url,
+                            'URL:' + window.location.origin + '/invitations/' + response.data.data.invitation_url,
                             'success'
                         )
                         this.getGuestes()
@@ -365,7 +365,7 @@
                 return '<span class="badge rounded-pill text-bg-light"  style="font-weight: bold">'+value+'</span>'
             },
             copyURL(url) {
-                url = window.location.origin + '/invitation/' + url
+                url = window.location.origin + '/invitations/' + url
                 const textarea = document.createElement("textarea");
                 textarea.value = url;
 

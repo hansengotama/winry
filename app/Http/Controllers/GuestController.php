@@ -96,4 +96,17 @@ class GuestController extends Controller
             return $this->apiHelper->getErrorResponse(500, "Error on create guest", $e->getMessage());
         }
     }
+
+    public function getByGuest(string $token) {
+        try {
+            $guest = $this->repo->findByToken($token);
+            return $this->apiHelper->getResponse(200, [
+                "token"=> $guest->invitation_url,
+                "name"=> $guest->name,
+                "max_attendance" => $guest->max_attendance
+            ]);
+        }catch (\Exception $e) {
+            return $this->apiHelper->getErrorResponse(404, "Invitation not found");
+        }
+    }
 }
