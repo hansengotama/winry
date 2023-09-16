@@ -30,7 +30,6 @@
 
                     this.user = response.data.data
                 })
-
             },
             getTokenFromURL() {
                 return this.$route.params.token
