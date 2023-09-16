@@ -46,6 +46,7 @@ class GuestRepository {
         $guest->name = $request->name;
         $guest->guest_group_id = $request->guest_group_id;
         $guest->max_attendance = $request->max_attendance;
+        $guest->is_show_wishes = $request->is_show_wishes;
 
         return $guest->save();
     }

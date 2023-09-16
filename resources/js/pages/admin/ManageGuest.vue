@@ -115,6 +115,12 @@
                                 <option :value=group.id v-for="group in groups" :key="group.id">{{ group.name }}</option>
                             </select>
                         </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" v-model="updateGuest.isShowWishes">
+                            <label class="form-check-label">
+                                Show Wishes
+                            </label>
+                        </div>
                         <div style="color:red" class="form-text">{{  updateGuestError }}</div>
                     </div>
                     <div class="modal-footer">
@@ -160,6 +166,7 @@
                     name: null,
                     maxAttendance: null,
                     groupGuestId: null,
+                    isShowWishes: null,
                 },
                 createGuestError: "",
                 updateGuestError: "",
@@ -180,6 +187,7 @@
                 this.updateGuest.name = guest.name
                 this.updateGuest.maxAttendance = guest.max_attendance
                 this.updateGuest.groupGuestId = guest.guest_group_id
+                this.updateGuest.isShowWishes = guest.is_show_wishes == 1 ? true : false
             },
             resetCreateGuest() {
                 this.createGuest.name = null
@@ -191,6 +199,7 @@
                 this.updateGuest.name = null
                 this.updateGuest.maxAttendance = null
                 this.updateGuest.groupGuestId = null
+                this.updateGuest.isShowWishes = null
             },
             validateCreateGuest() {
                 if (this.validateName(this.createGuest.name) != null) {
@@ -277,6 +286,7 @@
                     name: this.updateGuest.name,
                     max_attendance: this.updateGuest.maxAttendance,
                     guest_group_id: this.updateGuest.groupGuestId,
+                    is_show_wishes: this.updateGuest.isShowWishes,
                 }).then((response) => {
                     if (response.error == null && response.data != null) {
                         this.resetUpdateGuest()

@@ -72,7 +72,8 @@ class GuestController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'guest_group_id' => 'required',
-            'max_attendance' => 'required'
+            'max_attendance' => 'required',
+            'is_show_wishes' => 'required'
         ]);
 
         if ($validator->fails()) {
