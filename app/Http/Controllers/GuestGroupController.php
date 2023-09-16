@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Helpers\ApiHelper;
-use App\Http\Repositories\GuessGroupRepository;
+use App\Http\Repositories\GuestGroupRepository;
 use Illuminate\Support\Facades\Validator;
-use App\Models\GuessGroup;
+use App\Models\GuestGroup;
 
-class GuessGroupController extends Controller
+class GuestGroupController extends Controller
 {
     private $apiHelper;
 
     private $repo;
 
-    public function __construct(ApiHelper $apiHelper, GuessGroupRepository $repo)
+    public function __construct(ApiHelper $apiHelper, GuestGroupRepository $repo)
     {
         $this->apiHelper = $apiHelper;
         $this->repo = $repo;
@@ -23,10 +23,10 @@ class GuessGroupController extends Controller
 
     public function get(): JsonResponse {
         try {
-            $guessGroup = $this->repo->get();
-            return $this->apiHelper->getResponse(200, $guessGroup);
+            $guestGroup = $this->repo->get();
+            return $this->apiHelper->getResponse(200, $guestGroup);
         }catch (\Exception $e) {
-            return $this->apiHelper->getErrorResponse(500, "Error on get guess group", $e->getMessage());
+            return $this->apiHelper->getErrorResponse(500, "Error on get guest group", $e->getMessage());
         }
     }
 
@@ -40,10 +40,10 @@ class GuessGroupController extends Controller
         }
 
         try {
-            $guessGroup = $this->repo->create($request);
-            return $this->apiHelper->getResponse(201, $guessGroup);
+            $guestGroup = $this->repo->create($request);
+            return $this->apiHelper->getResponse(201, $guestGroup);
         }catch (\Exception $e) {
-            return $this->apiHelper->getErrorResponse(500, "Error on create guess group", $e->getMessage());
+            return $this->apiHelper->getErrorResponse(500, "Error on create guest group", $e->getMessage());
         }
     }
 
@@ -56,16 +56,16 @@ class GuessGroupController extends Controller
             return $this->apiHelper->getErrorResponse(422, "Error Validation", $validator->errors());
         }
 
-        $guessGroup = $this->repo->find($id);
-        if ($guessGroup == null) {
-            return $this->apiHelper->getErrorResponse(404, "Guess group not found", null);
+        $guestGroup = $this->repo->find($id);
+        if ($guestGroup == null) {
+            return $this->apiHelper->getErrorResponse(404, "Guest group not found", null);
         }
 
         try {
             $this->repo->update($id, $request);
             return $this->apiHelper->getResponse(200, null);
         }catch (\Exception $e) {
-            return $this->apiHelper->getErrorResponse(500, "Error on create guess group", $e->getMessage());
+            return $this->apiHelper->getErrorResponse(500, "Error on create guest group", $e->getMessage());
         }
     }
 }

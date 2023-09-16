@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\GuessGroup;
+use App\Models\GuestGroup;
 
-class Guess extends Model
+class Guest extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id',
-        'guess_group_id',
+        'guest_group_id',
         'name',
         'email',
         'wishes_icon_type',
@@ -24,7 +24,7 @@ class Guess extends Model
         'is_attend'
     ];
 
-    public function guessGroup() {
-        return $this->belongsTo(GuessGroup::class);
+    public function guestGroup() {
+        return $this->belongsTo(GuestGroup::class);
     }
 }

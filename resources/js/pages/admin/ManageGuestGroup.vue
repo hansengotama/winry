@@ -29,7 +29,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Group</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="resetCreateGroyp()"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="resetCreateGroup()"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
@@ -63,7 +63,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="resetUpdateGroup()">Close</button>
-                        <button type="button" class="btn btn-primary" @click="submitUpdateGroup()">Edit</button>
+                        <button type="button" class="btn btn-primary" @click="submitUpdateGroup()">Save</button>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
             }
         },
         mounted() {
-            this.getGuessGroup() 
+            this.getGuestGroup() 
         },
         methods: {
             onClickUpdateGroup(group) {
@@ -141,7 +141,7 @@
                 this.updateGroupFunc()
             },
             createGroupFunc() {
-                requestUrl.post("/admin/guess-groups", {
+                requestUrl.post("/admin/guest-groups", {
                     name: this.createGroup.name,
                 }).then((response) => {
                     if (response.error == null && response.data != null) {
@@ -152,7 +152,7 @@
                             'Yey',
                             'success'
                         )
-                        this.getGuessGroup()
+                        this.getGuestGroup()
                         return;
                     }
 
@@ -165,7 +165,7 @@
                 })
             },
             updateGroupFunc() {
-                requestUrl.put("/admin/guess-groups/" + this.updateGroup.id, {
+                requestUrl.put("/admin/guest-groups/" + this.updateGroup.id, {
                     name: this.updateGroup.name,
                 }).then((response) => {
                     if (response.error == null && response.data != null) {
@@ -176,7 +176,7 @@
                             'Yey',
                             'success'
                         )
-                        this.getGuessGroup()
+                        this.getGuestGroup()
                         return;
                     }
 
@@ -195,8 +195,8 @@
 
                 return null
             },
-            getGuessGroup() {
-                requestUrl.get("/admin/guess-groups").then((response) => {
+            getGuestGroup() {
+                requestUrl.get("/admin/guest-groups").then((response) => {
                     if (response.status == 200) {
                         this.groups = response.data.data
                     }

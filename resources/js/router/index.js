@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './../pages/Home.vue';
 import AdminLayout from './../pages/admin/Layout.vue';
 import AdminLogin from './../pages/admin/Login.vue';
-import AdminManageGuess from './../pages/admin/ManageGuess.vue';
-import AdminManageGuessGroup from './../pages/admin/ManageGuessGroup.vue';
+import AdminManageGuest from './../pages/admin/ManageGuest.vue';
+import AdminManageGuestGroup from './../pages/admin/ManageGuestGroup.vue';
 import NotFound from './../pages/NotFound.vue';
 
 const routes = [
@@ -21,14 +21,14 @@ const routes = [
                 component: AdminLogin,
             },
             {
-                name: "Admin Manage Guess",
-                path: '/admin/manage-guess',
-                component: AdminManageGuess,
+                name: "Admin Manage Guest",
+                path: '/admin/manage-guest',
+                component: AdminManageGuest,
             },
             {
-                name: "Admin Manage Guess Group",
-                path: '/admin/manage-guess-group',
-                component: AdminManageGuessGroup,
+                name: "Admin Manage Guest Group",
+                path: '/admin/manage-guest-group',
+                component: AdminManageGuestGroup,
             },
         ]
     },

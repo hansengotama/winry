@@ -51,7 +51,7 @@
                 }).then((response) => {
                     if (response.data != null && response.data.data.error == null) {
                         vueCookie.set('access_token', response.data.data.token)
-                        this.redirectToManageGuess()
+                        this.redirectToManageGuest()
                         this.$emit("updateIsLogin")
                         return;
                     }
@@ -73,9 +73,9 @@
                     this.error.message = response.response.data.error.message
                 })
             },
-            redirectToManageGuess() {
+            redirectToManageGuest() {
                 this.$router.push({
-                    name: "Admin Manage Guess"
+                    name: "Admin Manage Guest"
                 })
             },
         }

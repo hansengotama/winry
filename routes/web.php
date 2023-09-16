@@ -14,17 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('guess.index');
+    return view('guest.index');
 });
 
 Route::get('/admin/login', function () {
     return view('admin.index');
 });
 
-Route::get('/admin/manage-guess', function () {
+Route::get('/admin/manage-guest', function () {
     return view('admin.index');
 });
 
-Route::get('/admin/manage-guess-group', function () {
+Route::get('/admin/manage-guest-group', function () {
     return view('admin.index');
 });

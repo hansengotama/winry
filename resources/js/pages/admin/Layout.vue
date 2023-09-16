@@ -4,15 +4,15 @@
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <button class="nav-link" 
-                            :class="(currentRoute == 'Admin Manage Guess') ? 'active' : ''"
-                            @click="redirectToMenu('Admin Manage Guess')">
-                            Guess
+                            :class="(currentRoute == 'Admin Manage Guest') ? 'active' : ''"
+                            @click="redirectToMenu('Admin Manage Guest')">
+                            Guest
                     </button>
                 </li>
                 <li class="nav-item">
                     <button class="nav-link" 
-                            :class="(currentRoute == 'Admin Manage Guess Group') ? 'active' : ''"
-                            @click="redirectToMenu('Admin Manage Guess Group')">
+                            :class="(currentRoute == 'Admin Manage Guest Group') ? 'active' : ''"
+                            @click="redirectToMenu('Admin Manage Guest Group')">
                             Group
                     </button>
                 </li>
@@ -59,9 +59,9 @@
 
                     if (response.error == null && response.data != null) {
                         if (this.currentRoute == 'Admin Login') {
-                            this.redirectToMenu('Admin Manage Guess');
+                            this.redirectToMenu('Admin Manage Guest');
                         }
-                        
+
                         this.isLogin = true;
                         return;
                     }
