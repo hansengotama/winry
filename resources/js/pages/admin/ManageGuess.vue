@@ -124,16 +124,6 @@
     </div>
 </template>
 
-<style>
-    .test {
-        font-weight: normal;
-    }
-
-    .test-1 {
-        font-weight: bold;
-    }
-</style>
-
 <script>
     import requestUrl from "../../helper/request"
     import swal from 'sweetalert2';
@@ -171,12 +161,12 @@
                 this.updateGuess.groupGuessId = guess.guess_group_id
             },
             resetCreateGuess() {
-                this.updateGuess.id = null
                 this.createGuess.name = null
                 this.createGuess.maxAttendance = null
                 this.createGuess.groupGuessId = null
             },
             resetUpdateGuess() {
+                this.updateGuess.id = null
                 this.updateGuess.name = null
                 this.updateGuess.maxAttendance = null
                 this.updateGuess.groupGuessId = null
@@ -288,7 +278,7 @@
                 })
             },
             validateName(value) {
-                if (value == null) {
+                if (value == null || value == "") {
                     return 'Name is required'
                 }
 
@@ -297,6 +287,10 @@
             validateMaxAttendance(value) {
                 if (value == null) {
                     return 'Max Attendee is required'
+                }
+
+                if (value <= 0) {
+                    return 'Max Attendee cannot be 0 or less'
                 }
 
                 return null

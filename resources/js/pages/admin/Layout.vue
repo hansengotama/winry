@@ -58,7 +58,10 @@
                     }
 
                     if (response.error == null && response.data != null) {
-                        this.redirectToMenu('Admin Manage Guess');
+                        if (this.currentRoute == 'Admin Login') {
+                            this.redirectToMenu('Admin Manage Guess');
+                        }
+                        
                         this.isLogin = true;
                         return;
                     }
