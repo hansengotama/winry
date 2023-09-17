@@ -16,15 +16,47 @@
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/images/Assets/1.jpg": {
+    "file": "assets/1-bf41604d.jpg",
+    "src": "resources/images/Assets/1.jpg"
+  },
+  "resources/images/Assets/2.jpg": {
+    "file": "assets/2-1249a356.jpg",
+    "src": "resources/images/Assets/2.jpg"
+  },
+  "resources/images/Assets/3.jpg": {
+    "file": "assets/3-01b40382.jpg",
+    "src": "resources/images/Assets/3.jpg"
+  },
+  "resources/images/Assets/4.jpg": {
+    "file": "assets/4-960ab9fc.jpg",
+    "src": "resources/images/Assets/4.jpg"
+  },
+  "resources/images/winry/bride.png": {
+    "file": "assets/bride-9a338a46.png",
+    "src": "resources/images/winry/bride.png"
+  },
+  "resources/images/winry/groom.png": {
+    "file": "assets/groom-605d7e67.png",
+    "src": "resources/images/winry/groom.png"
+  },
   "resources/js/app.css": {
-    "file": "assets/app-3071b49d.css",
+    "file": "assets/app-48dd7533.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
-    "css": [
-      "assets/app-3071b49d.css"
+    "assets": [
+      "assets/groom-605d7e67.png",
+      "assets/bride-9a338a46.png",
+      "assets/1-bf41604d.jpg",
+      "assets/3-01b40382.jpg",
+      "assets/2-1249a356.jpg",
+      "assets/4-960ab9fc.jpg"
     ],
-    "file": "assets/app-9565e830.js",
+    "css": [
+      "assets/app-48dd7533.css"
+    ],
+    "file": "assets/app-7e26c4eb.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

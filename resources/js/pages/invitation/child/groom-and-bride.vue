@@ -4,7 +4,7 @@
             <div style="padding: 30px; max-width: 470px; margin: 0 auto;">
                 <div class="groom-and-bride-title">THE GROOM & BRIDE</div>
                 <div class="groom-container">
-                    <img :src="baseURL + '/images/winry/groom.png'" class="profile-image">
+                    <img src="@/../images/winry/groom.png" class="profile-image">
                     <div class="groom-detail">
                         <div class="groom-name">Ryan Chan</div>
                         <div class="groom-son-of">Son Of</div>
@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="bride-container">
-                    <img :src="baseURL + '/images/winry/bride.png'" class="profile-image">
+                    <img src="@/../images/winry/bride.png" class="profile-image">
                     <div class="bride-detail">
                         <div class="bride-name">Winnie Gotama</div>
                         <div class="daughter-of">Daughter Of</div>
@@ -147,21 +147,3 @@
         }
     }
 </style>
-
-<script>
-    export default {
-        data() {
-            return {
-                baseURL: "",
-            }
-        },
-        mounted() {
-            this.initBaseURL();
-        },
-        methods: {
-            initBaseURL() {
-                this.baseURL = window.location.origin
-            },
-        }
-    }
-</script>

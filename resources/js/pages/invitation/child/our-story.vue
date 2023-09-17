@@ -20,16 +20,16 @@
         </div>
         <div class="our-story-image-container">
             <div class="our-story-image-1">
-                <img src="/images/Assets/1.JPG" width="100%">
+                <img src="@/../images/Assets/1.jpg" width="100%">
             </div>
             <div class="our-story-image-2">
-                <img src="/images/Assets/3.JPG" width="100%">
+                <img src="@/../images/Assets/3.jpg" width="100%">
             </div>
             <div class="our-story-image-3">
-                <img src="/images/Assets/2.JPG" width="100%">
+                <img src="@/../images/Assets/2.jpg" width="100%">
             </div>
             <div class="our-story-image-4">
-                <img src="/images/Assets/4.JPG" width="100%">
+                <img src="@/../images/Assets/4.jpg" width="100%">
             </div>
         </div>
         <div class="our-story-description-text">
