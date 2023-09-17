@@ -5,9 +5,8 @@
             <div class="invitation-title-name">Ryan &amp; Winnie</div>
             <div class="invitation-title-date">10 . 09 . 2023</div>
         </div>
-        <!-- <div style="height: 30px;"></div> -->
         <div class="view-invitation">
-            <div class="view-invitation-greeting-1">Dear Hansen,</div>
+            <div class="view-invitation-greeting-1">Dear {{this.user.name}},</div>
             <div class="view-invitation-greeting-2">We humbly invite you to be a part of our joyous celebration of love.</div>
             <button class="view-invitation-btn" @click="viewInvitation()">View e-invitation</button>
         </div>
@@ -118,6 +117,7 @@
 
 <script>
     export default {
+        props: ['user'],
         methods: {
             viewInvitation() {
                 this.$emit('viewInvitation')

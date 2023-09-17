@@ -1,11 +1,11 @@
 <template>
     <Transition name="slide-up">
         <div class="opening" v-if="!isShowInvitation">
-            <opening @viewInvitation="viewInvitation"></opening>
+            <opening @viewInvitation="viewInvitation" :user="user"></opening>
         </div>
     </Transition>
 
-    <div class="invitation-detail">
+    <div class="invitation-detail" v-show="isShowInvitation">
         <div class="home">Hi, {{ user.name }}</div>
     </div>
 </template>
