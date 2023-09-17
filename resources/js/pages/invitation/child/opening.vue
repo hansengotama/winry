@@ -3,7 +3,7 @@
         <div class="opening-title">
             <div class="opening-title-text">THE WEDDING OF</div>
             <div class="opening-title-name">Ryan &amp; Winnie</div>
-            <div class="opening-title-date">10 . 09 . 2023</div>
+            <div class="opening-title-date">10 . 12 . 2023</div>
         </div>
         <div class="view-invitation">
             <div class="view-invitation-greeting-1">Dear {{this.user.name}},</div>
