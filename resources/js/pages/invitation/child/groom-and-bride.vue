@@ -27,7 +27,7 @@
 <style scoped>
     .groom-and-bride-container {
         background-color: #E3E5DA;
-        padding: 30px 0;
+        padding: 60px 0;
     }
 
     .groom-and-bride-section {
