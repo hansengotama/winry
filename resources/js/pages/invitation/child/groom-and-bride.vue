@@ -27,13 +27,12 @@
 <style scoped>
     .groom-and-bride-container {
         background-color: #E3E5DA;
-        padding: 30px;
+        padding: 30px 0;
     }
 
     .groom-and-bride-section {
         margin: 0 auto;
-        max-width: 900px;
-        padding: 10px;
+        width: 80%;
         border-top-left-radius: 50px;
         border-bottom-right-radius: 50px;
         background-color: #FFFFFF;
