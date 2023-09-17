@@ -8,6 +8,7 @@
     <div class="invitation-detail" v-show="isShowInvitation">
         <music @playAndPauseMusic="playAndPauseMusic" :isAudioPlay="isAudioPlay"></music>
         <introduction></introduction>
+        <groom-and-bride></groom-and-bride>
     </div>
 </template>
 
@@ -62,6 +63,7 @@
     import Music from "./child/music.vue"
     import Opening from './child/opening.vue'
     import Introduction from "./child/introduction.vue"
+    import GroomAndBride from "./child/groom-and-bride.vue"
 
     export default {
         data() {
@@ -80,6 +82,7 @@
             Opening: Opening,
             Music: Music,
             Introduction: Introduction,
+            GroomAndBride: GroomAndBride,
         },
         methods: {
             getInvitationDetail() {
