@@ -18,6 +18,23 @@
                 We hope to see you there, and look forward to having you.
             </div>
         </div>
+        <div class="our-story-image-container">
+            <div class="our-story-image-1">
+                <img :src="baseURL + '/images/Assets/1.JPG'" width="100%">
+            </div>
+            <div class="our-story-image-2">
+                <img :src="baseURL + '/images/Assets/3.JPG'" width="100%">
+            </div>
+            <div class="our-story-image-3">
+                <img :src="baseURL + '/images/Assets/2.JPG'" width="100%">
+            </div>
+            <div class="our-story-image-4">
+                <img :src="baseURL + '/images/Assets/4.JPG'" width="100%">
+            </div>
+        </div>
+        <div class="our-story-description-text">
+            “We may not have it all together, but together we have it all.”
+        </div>
     </div>
 </template>
 
@@ -36,7 +53,43 @@
 
     .our-story-description-text {
         font-size: 14px;
-        padding-bottom: 12px;
+        padding: 14px 0;
+    }
+
+    .our-story-image-container {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        grid-gap: 5px 10px;
+    }
+
+    .our-story-image-1 {
+        width: 100%;
+        height: 100%;
+
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    .our-story-image-2 {
+        width: 100%;
+
+        grid-row-start: 3;
+    }
+
+    .our-story-image-3 {
+        width: 100%;
+        height: 100%;
+
+        grid-row-start: 1;
+    }
+
+    .our-story-image-4 {
+        width: 100%;
+
+        grid-row-start: 2;
+        grid-row-end: 5;
     }
 
     @media (min-width: 600px) {
@@ -49,7 +102,25 @@
         }
         .our-story-description-text {
             font-size: 20px;
-            padding-bottom: 12px;
         }
     }
 </style>
+
+
+<script>
+    export default {
+        data() {
+            return {
+                baseURL: "",
+            }
+        },
+        mounted() {
+            this.initBaseURL();
+        },
+        methods: {
+            initBaseURL() {
+                this.baseURL = window.location.origin
+            },
+        }
+    }
+</script>
