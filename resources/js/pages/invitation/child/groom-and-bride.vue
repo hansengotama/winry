@@ -131,6 +131,13 @@
 
         .groom-son-of {
             margin-top: 0;
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .groom-son-of-value {
+            font-size: 20px;
+            text-align: left;
         }
 
         .bride-container {
@@ -144,6 +151,18 @@
         }
         .daughter-of {
             margin-top: 0;
+            font-size: 20px;
+            text-align: right;
+        }
+
+        .daughter-of-value {
+            font-size: 20px;
+            text-align: right;
+        }
+
+        .groom-name, .bride-name {
+            font-size: 32px;
+            margin-bottom: 8px;
         }
     }
 </style>
