@@ -19,7 +19,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        height: 100vh;
+        height: 100%;
     }
 
     .invitation-title { 
@@ -37,6 +37,7 @@
 
     .invitation-title-name {
         font-size: 40px;
+        font-weight: normal;
         font-family: Brigitha Signature;
     }
 
@@ -100,7 +101,11 @@
             font-size: 16px;
         }
 
-        .view-invitation {
+        .view-invitation-greeting-1 {
+            font-size: 16px;
+        }
+
+        .view-invitation-greeting-2 {
             font-size: 14px;
         }
 
