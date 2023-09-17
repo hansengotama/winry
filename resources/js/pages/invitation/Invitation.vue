@@ -27,11 +27,6 @@
         z-index: 9999;
     }
 
-    .invitation-detail {
-        height: 200vh;
-        background-color: brown;
-    }
-
     .slide-up-enter-active,
     .slide-up-leave-active {
         transition: transform 0.8s;

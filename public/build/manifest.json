@@ -17,14 +17,14 @@
     "src": "resources/css/app.css"
   },
   "resources/js/app.css": {
-    "file": "assets/app-787a4a29.css",
+    "file": "assets/app-bbc94457.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-787a4a29.css"
+      "assets/app-bbc94457.css"
     ],
-    "file": "assets/app-ffe4b423.js",
+    "file": "assets/app-701f3173.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
