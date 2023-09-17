@@ -59,13 +59,13 @@
         color: #FFF;
         font-weight: 700;
         margin-bottom: 30px;
-        max-width: 600px;
+        max-width: 500px;
         text-align: center;
     }
 
     @media (max-width: 720px) {
         .introduction-title {
-            margin-top: 45px;
+            margin-top: 50px;
         }
 
         .introduction-title-text {
@@ -74,6 +74,11 @@
 
         .introduction-title-name { 
             font-size: 36px;
+        }
+        .introduction-description {
+            max-width: 300px;
+            margin-bottom: 60px;
+            font-size: 14px;
         }
     }
 </style>

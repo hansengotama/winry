@@ -28,7 +28,7 @@
 
     .invitation-detail {
         height: 200vh;
-        background-color: green;
+        background-color: brown;
     }
 
     .slide-up-enter-active,
@@ -43,8 +43,6 @@
     .slide-up-leave-active {
         transform: translateY(-100%);
     }
-
-
 
     @media (max-width: 720px) {
         .opening {
