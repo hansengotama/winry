@@ -8,10 +8,6 @@
         <link rel="icon" href="/images/logo.png">
 
         <style>
-            :root {
-                --app-height: 100%;
-            }
-
             html, body {
                 margin: 0;
                 padding: 0;
@@ -22,15 +18,5 @@
     <body>
         <div id="app"></div>
         @vite('resources/js/app.js')
-
-        <script>
-            const appHeight = () => {
-                const doc = document.documentElement
-                doc.style.setProperty('--app-height', `${window.innerHeight}px`);
-            }
-
-            window.addEventListener('resize', appHeight)
-            appHeight()
-        </script>
     </body>
 </html>
