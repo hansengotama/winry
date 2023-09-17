@@ -4,7 +4,7 @@
             <div style="padding: 30px; max-width: 470px; margin: 0 auto;">
                 <div class="groom-and-bride-title">THE GROOM & BRIDE</div>
                 <div class="groom-container">
-                    <img src="/images/winry/groom.png" class="profile-image">
+                    <img :src="baseURL + '/images/winry/groom.png'" class="profile-image">
                     <div class="groom-detail">
                         <div class="groom-name">Ryan Chan</div>
                         <div class="groom-son-of">Son Of</div>
@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="bride-container">
-                    <img src="/images/winry/bride.png" class="profile-image">
+                    <img :src="baseURL + '/images/winry/bride.png'" class="profile-image">
                     <div class="bride-detail">
                         <div class="bride-name">Winnie Gotama</div>
                         <div class="daughter-of">Daughter Of</div>
@@ -25,10 +25,6 @@
 </template>
 
 <style scoped>
-    .animate__animated.animate__fadeInUp {
-        --animate-duration: 2s;
-    }
-
     .groom-and-bride-container {
         background-color: #E3E5DA;
         padding: 30px;
