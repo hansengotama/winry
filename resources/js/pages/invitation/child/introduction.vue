@@ -14,13 +14,13 @@
 
 <style scoped>
     .introduction {
-        height: 100%;
+        height: 100vh;
         width: 100%;
         background: linear-gradient(
             rgba(0, 0, 0, 0.1),
             rgba(0, 0, 0, 0.5)
         ), url('/images/winry/image_1.JPG');
-        background-position: center 25%;
+        background-position: center 20%;
         background-repeat: no-repeat;
         background-size: cover;
     }
