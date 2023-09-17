@@ -53,11 +53,11 @@
 
     .our-story-description-text {
         font-size: 14px;
-        padding: 14px 0;
+        padding: 10px 0;
     }
 
     .our-story-image-container {
-        margin-top: 30px;
+        margin-top: 10px;
         display: grid;
         grid-template-columns: auto auto;
         grid-template-rows: auto auto;
