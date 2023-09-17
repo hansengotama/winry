@@ -1,9 +1,7 @@
 <template>
     <Transition name="slide-up">
-        <div class="invitation" v-if="isShow">
-            <div class="home">Hi, {{ user.name }}</div>
-            
-            <button @click="redirectToDetail()">test</button>
+        <div class="opening" v-if="!isShowInvitation">
+            <opening @viewInvitation="viewInvitation"></opening>
         </div>
     </Transition>
 
@@ -17,21 +15,40 @@
         font-family: Brigitha Signature;
     }
 
-    .invitation {
+    .opening {
         position: absolute;
         height: 100vh;
         width: 100%;
-        background-color: aliceblue;
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.5)
+        ), url("/images/winry/image_w_1.JPG");
+        background-position: unset;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    @media (max-width: 720px) {
+        .opening {
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.5)
+            ), url("/images/winry/image_m_1.JPG");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     }
 
     .invitation-detail {
         width: 100%;
-        background-color: blue;
+        height: 200vh;
+        background-color: brown;
     }
 
     .slide-up-enter-active,
     .slide-up-leave-active {
-        transition: transform 2s;
+        transition: transform 0.8s;
     }
 
     .slide-up-enter, .slide-up-leave-to /* .slide-up-leave-active in <2.1.8 */ {
@@ -45,16 +62,20 @@
 
 <script>
     import requestUrl from "../../helper/request"
+    import opening from './child/opening.vue'
 
     export default {
         data() {
             return {
                 user: {},
-                isShow: true,
+                isShowInvitation: false,
             }
         },
         mounted() {
             this.getInvitationDetail() 
+        },
+        components: {
+            Opening: opening,
         },
         methods: {
             getInvitationDetail() {
@@ -70,19 +91,13 @@
             getTokenFromURL() {
                 return this.$route.params.token
             },
-            redirectToDetail() {
-                this.isShow = false
-                // this.$router.push({
-                //     name: "Invitation Detail",
-                //     params: {
-                //         token: this.getTokenFromURL()
-                //     }
-                // })
-            },
             redirectToNotFound() {
                 this.$router.push({
                     name: "Not Found"
                 })
+            },
+            viewInvitation() {
+                this.isShowInvitation = true
             },
         }
     }
