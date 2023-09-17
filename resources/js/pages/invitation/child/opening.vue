@@ -1,9 +1,9 @@
 <template>
     <div class="opening-container">
-        <div class="invitation-title">
-            <div class="invitation-title-text">THE WEDDING OF</div>
-            <div class="invitation-title-name">Ryan &amp; Winnie</div>
-            <div class="invitation-title-date">10 . 09 . 2023</div>
+        <div class="opening-title">
+            <div class="opening-title-text">THE WEDDING OF</div>
+            <div class="opening-title-name">Ryan &amp; Winnie</div>
+            <div class="opening-title-date">10 . 09 . 2023</div>
         </div>
         <div class="view-invitation">
             <div class="view-invitation-greeting-1">Dear {{this.user.name}},</div>
@@ -13,7 +13,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .opening-container {
         display: flex;
         flex-direction: column;
@@ -22,7 +22,7 @@
         height: 100%;
     }
 
-    .invitation-title { 
+    .opening-title { 
         color: #FFF;
         font-weight: 700;
         display: flex;
@@ -31,18 +31,18 @@
         align-items: center;
     }
 
-    .invitation-title-text {
+    .opening-title-text {
         font-size: 24px;
     }
 
-    .invitation-title-name {
+    .opening-title-name {
         font-size: 40px;
         font-weight: normal;
         font-family: Brigitha Signature;
         margin-top: -6px;
     }
 
-    .invitation-title-date {
+    .opening-title-date {
         font-size: 20px;
         margin-top: -10px;
     }
@@ -87,19 +87,19 @@
             justify-content: space-between;
         }
 
-        .invitation-title {
+        .opening-title {
             margin-top: 45px;
         }
 
-        .invitation-title-text {
+        .opening-title-text {
             font-size: 16px;
         }
 
-        .invitation-title-name { 
+        .opening-title-name { 
             font-size: 36px;
         }
 
-        .invitation-title-date {
+        .opening-title-date {
             font-size: 16px;
         }
 

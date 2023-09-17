@@ -7,12 +7,11 @@
 
     <div class="invitation-detail" v-show="isShowInvitation">
         <music @playAndPauseMusic="playAndPauseMusic" :isAudioPlay="isAudioPlay"></music>
-        <div class="home">Hi, {{ user.name }}</div>
-
+        <introduction></introduction>
     </div>
 </template>
 
-<style>
+<style scoped>
     .opening {
         position: absolute;
         height: 100%;
@@ -27,22 +26,9 @@
         z-index: 9999;
     }
 
-    @media (max-width: 720px) {
-        .opening {
-            background: linear-gradient(
-                rgba(0, 0, 0, 0.1),
-                rgba(0, 0, 0, 0.2)
-            ), url('/images/winry/image_m_1.JPG');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    }
-
     .invitation-detail {
-        width: 100%;
         height: 200vh;
-        background-color: brown;
+        background-color: green;
     }
 
     .slide-up-enter-active,
@@ -57,12 +43,27 @@
     .slide-up-leave-active {
         transform: translateY(-100%);
     }
+
+
+
+    @media (max-width: 720px) {
+        .opening {
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.2)
+            ), url('/images/winry/image_m_1.JPG');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
 </style>
 
 <script>
     import requestUrl from "../../helper/request"
     import Music from "./child/music.vue"
-    import opening from './child/opening.vue'
+    import Opening from './child/opening.vue'
+    import Introduction from "./child/introduction.vue"
 
     export default {
         data() {
@@ -78,8 +79,9 @@
             this.initiateMusic()
         },
         components: {
-            Opening: opening,
+            Opening: Opening,
             Music: Music,
+            Introduction: Introduction,
         },
         methods: {
             getInvitationDetail() {
