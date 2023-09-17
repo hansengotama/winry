@@ -58,7 +58,7 @@
 
     .view-invitation-greeting-1 {
         color: #FFF;
-        margin-bottom: 18px;
+        margin-bottom: 20px;
     }
 
     .view-invitation-greeting-2 {
@@ -114,6 +114,7 @@
         }
 
         .view-invitation-btn {
+            font-size: 14px;
             padding: 4px 30px;
 
         }
