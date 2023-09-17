@@ -7,6 +7,12 @@
         <title>WINRY | Wedding Invitation</title>
         <link rel="icon" href="/images/logo.png">
 
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
         @vite('resources/css/app.css')
     </head>
     <body>

@@ -17,6 +17,10 @@ Route::get('/invitations/{token}', function () {
     return view('guest.index');
 });
 
+Route::get('/invitations/{token}/detail', function () {
+    return view('guest.index');
+});
+
 Route::get('/not-found', function () {
     return view('guest.index');
 });
