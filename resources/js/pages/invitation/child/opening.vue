@@ -39,10 +39,12 @@
         font-size: 40px;
         font-weight: normal;
         font-family: Brigitha Signature;
+        margin-top: -6px;
     }
 
     .invitation-title-date {
         font-size: 20px;
+        margin-top: -10px;
     }
 
     .view-invitation {
