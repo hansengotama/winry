@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import InvitationLayout from './../pages/invitation/Layout.vue';
 import InvitationPage from './../pages/invitation/Invitation.vue';
 import AdminLayout from './../pages/admin/Layout.vue';
 import AdminLogin from './../pages/admin/Login.vue';
@@ -9,15 +8,9 @@ import NotFound from './../pages/NotFound.vue';
 
 const routes = [
     {
-        path: '/invitations',
-        component: InvitationLayout,
-        children: [
-            {
-                name: 'Invitation',
-                path: '/invitations/:token',
-                component: InvitationPage,
-            }
-        ]
+        name: 'Invitation',
+        path: '/invitations/:token',
+        component: InvitationPage,
     },
     {
         path: '/admin',
