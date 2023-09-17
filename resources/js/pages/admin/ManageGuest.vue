@@ -16,7 +16,7 @@
                     </select>
                 </div>
                 <div style="flex: 1">
-                    <button class="btn btn-outline-primary" @click="getGuests()">Filter</button>
+                    <button class="btn btn-outline-primary" @click="applyFilter()">Filter</button>
                 </div>
             </div>
         </div>
@@ -348,6 +348,10 @@
                 }
 
                 return null
+            },
+            applyFilter() {
+                this.filter.page = 1
+                this.getGuests()
             },
             getGuests() {
                 const filterName = this.filter.name ?? ""
