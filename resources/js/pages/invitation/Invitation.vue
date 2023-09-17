@@ -6,7 +6,9 @@
     </Transition>
 
     <div class="invitation-detail" v-show="isShowInvitation">
+        <music @playAndPauseMusic="playAndPauseMusic" :isAudioPlay="isAudioPlay"></music>
         <div class="home">Hi, {{ user.name }}</div>
+
     </div>
 </template>
 
@@ -18,10 +20,11 @@
         background: linear-gradient(
             rgba(0, 0, 0, 0.1),
             rgba(0, 0, 0, 0.5)
-        ), url("/images/winry/image_w_1.JPG");
+        ), url('/images/winry/image_w_1.JPG');
         background-position: unset;
         background-repeat: no-repeat;
         background-size: cover;
+        z-index: 9999;
     }
 
     @media (max-width: 720px) {
@@ -29,7 +32,7 @@
             background: linear-gradient(
                 rgba(0, 0, 0, 0.1),
                 rgba(0, 0, 0, 0.2)
-            ), url("/images/winry/image_m_1.JPG");
+            ), url('/images/winry/image_m_1.JPG');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -58,6 +61,7 @@
 
 <script>
     import requestUrl from "../../helper/request"
+    import Music from "./child/music.vue"
     import opening from './child/opening.vue'
 
     export default {
@@ -65,13 +69,17 @@
             return {
                 user: {},
                 isShowInvitation: false,
+                audio: new Audio("/musics/la-vie-en-rose.mp3"),
+                isAudioPlay: false,
             }
         },
         mounted() {
             this.getInvitationDetail() 
+            this.initiateMusic()
         },
         components: {
             Opening: opening,
+            Music: Music,
         },
         methods: {
             getInvitationDetail() {
@@ -94,6 +102,20 @@
             },
             viewInvitation() {
                 this.isShowInvitation = true
+                this.playAndPauseMusic()
+            },
+            initiateMusic() {
+                this.audio.loop = true;
+            },
+            playAndPauseMusic() {
+                if (this.isAudioPlay) {
+                    this.audio.pause();
+                    this.isAudioPlay = false
+                    return
+                }
+
+                this.audio.play();
+                this.isAudioPlay = true
             },
         }
     }
