@@ -14,8 +14,7 @@
 
 <style scoped>
     .introduction {
-        height: 100vh;
-        height: var( -app-height);
+        height: var(--app-height);
         width: 100%;
         background: linear-gradient(
             rgba(0, 0, 0, 0.1),

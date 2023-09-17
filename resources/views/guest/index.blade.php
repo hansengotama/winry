@@ -9,7 +9,7 @@
 
         <style>
             :root {
-               -app-height: 100%;
+                --app-height: 100%;
             }
 
             html, body {
@@ -26,10 +26,10 @@
         <script>
             const appHeight = () => {
                 const doc = document.documentElement
-                doc.style.setProperty(‘ -app-height’, `${window.innerHeight}px`)
+                doc.style.setProperty('--app-height', `${window.innerHeight}px`);
             }
 
-            window.addEventListener(‘resize’, appHeight)
+            window.addEventListener('resize', appHeight)
             appHeight()
         </script>
     </body>
