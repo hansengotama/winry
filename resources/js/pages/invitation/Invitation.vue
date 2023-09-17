@@ -28,7 +28,7 @@
         .opening {
             background: linear-gradient(
                 rgba(0, 0, 0, 0.1),
-                rgba(0, 0, 0, 0.5)
+                rgba(0, 0, 0, 0.2)
             ), url("/images/winry/image_m_1.JPG");
             background-position: center;
             background-repeat: no-repeat;

@@ -71,7 +71,7 @@
         color: #5E5E5E;
         opacity: 0.6;
         border: none;
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 1);
         cursor: pointer;
         padding: 5px 40px;
         border-radius: 36px;
