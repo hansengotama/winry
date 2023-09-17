@@ -20,16 +20,16 @@
         </div>
         <div class="our-story-image-container">
             <div class="our-story-image-1">
-                <img :src="baseURL + '/images/Assets/1.JPG'" width="100%">
+                <img src="/images/Assets/1.JPG" width="100%">
             </div>
             <div class="our-story-image-2">
-                <img :src="baseURL + '/images/Assets/3.JPG'" width="100%">
+                <img src="/images/Assets/3.JPG" width="100%">
             </div>
             <div class="our-story-image-3">
-                <img :src="baseURL + '/images/Assets/2.JPG'" width="100%">
+                <img src="/images/Assets/2.JPG" width="100%">
             </div>
             <div class="our-story-image-4">
-                <img :src="baseURL + '/images/Assets/4.JPG'" width="100%">
+                <img src="/images/Assets/4.JPG" width="100%">
             </div>
         </div>
         <div class="our-story-description-text">
@@ -106,21 +106,3 @@
     }
 </style>
 
-
-<script>
-    export default {
-        data() {
-            return {
-                baseURL: "",
-            }
-        },
-        mounted() {
-            this.initBaseURL();
-        },
-        methods: {
-            initBaseURL() {
-                this.baseURL = window.location.origin
-            },
-        }
-    }
-</script>
