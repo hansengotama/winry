@@ -6,9 +6,10 @@
 <style scoped>
     .parallax {
         height: 350px;
-        width: 100%;
-        background-image: url('@/../images/winry/countdown1.jpg');
+        background-image: url(http://127.0.0.1:5173/resources/images/winry/countdown.png);
         background-position: center;
-        background-size: contain;
+        background-size: inherit;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
     }
 </style>

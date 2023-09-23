@@ -52,10 +52,6 @@
     "file": "assets/bride-9a338a46.png",
     "src": "resources/images/winry/bride.png"
   },
-  "resources/images/winry/countdown1.jpg": {
-    "file": "assets/countdown1-4c4771c6.jpg",
-    "src": "resources/images/winry/countdown1.jpg"
-  },
   "resources/images/winry/groom.png": {
     "file": "assets/groom-605d7e67.png",
     "src": "resources/images/winry/groom.png"
@@ -85,7 +81,7 @@
     "src": "resources/images/winry/thank_you.jpg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-61c70644.css",
+    "file": "assets/app-81ba22ca.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -104,14 +100,13 @@
       "assets/ig_icon-080551c6.png",
       "assets/wa_icon-92caa699.png",
       "assets/image_1-48a23ee5.JPG",
-      "assets/countdown1-4c4771c6.jpg",
       "assets/image_w_1-92d94a33.JPG",
       "assets/image_m_1-f3c5f605.JPG"
     ],
     "css": [
-      "assets/app-61c70644.css"
+      "assets/app-81ba22ca.css"
     ],
-    "file": "assets/app-b5efa9d0.js",
+    "file": "assets/app-04ba4f21.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
