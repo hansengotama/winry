@@ -25,6 +25,7 @@
         width: 80%;
         margin: 0 auto;
         padding-bottom: 60px;
+        font-weight: 800;
     }
 
     .place-and-date-title {
@@ -46,6 +47,7 @@
 
     .place-and-date-detail-bg-container {
         position: relative;
+        margin-bottom: -6px;
     }
 
     .place-and-date-detail-bg-container::after  {
@@ -55,8 +57,8 @@
         top: 0;
         z-index: 0;
         width: 100%; 
-        height: calc(100% - 5px);;
-        background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.7));
+        height: calc(100% - 6px);;
+        background: linear-gradient(rgba(94, 94, 94, 0.6),rgba(94, 94, 94, 0.9));
     }
 
     .place-and-date-detail-description {
@@ -110,12 +112,12 @@
 
     @media (min-width: 720px) {
         .place-and-date-detail-description {
-            top: 18%;
+            top: 5%;
         }
-        .place-and-date-section {
+        /* .place-and-date-section {
             width: 100%;
             padding-bottom: 0;
-        }
+        } */
 
         .place-and-date-title {
             font-size: 40px;
@@ -155,8 +157,26 @@
         }
     }
 
+    @media (min-width: 800px) {
+        .place-and-date-detail-description {
+            top: 10%;
+        }
+    }
 
-    @media (min-width: 1100px) {
+    @media (min-width: 900px) {
+        .place-and-date-detail-description {
+            top: 15%;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        .place-and-date-detail-description {
+            top: 18%;
+        }
+    }
+
+
+    /* @media (min-width: 1100px) {
         .place-and-date-detail-title {
             font-size: 50px;
         }
@@ -184,7 +204,7 @@
         .place-and-date-detail-room {
             font-size: 28px;
         }
-    }
+    } */
 </style>
 
 <script>
