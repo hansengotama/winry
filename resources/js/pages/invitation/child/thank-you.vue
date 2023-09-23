@@ -10,7 +10,7 @@
             </div>
             <div class="invitation-thank-you-text-container">
                 <div class="invitation-thank-you-title">with love,</div>
-                <div class="invitation-thank-you-text-detail">Family & Friends</div>
+                <div class="invitation-thank-you-text-detail">Ryan & Winnie</div>
             </div>
         </div>
     </div>
