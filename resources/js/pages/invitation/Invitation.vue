@@ -10,6 +10,7 @@
         <introduction></introduction>
         <groom-and-bride></groom-and-bride>
         <our-story></our-story>
+        <invitation-footer></invitation-footer>
     </div>
 </template>
 
@@ -61,6 +62,7 @@
     import Introduction from "./child/introduction.vue"
     import GroomAndBride from "./child/groom-and-bride.vue"
     import OurStory from "./child/our-story.vue"
+    import Footer from "./child/footer.vue"
 
     export default {
         data() {
@@ -81,6 +83,7 @@
             Introduction: Introduction,
             GroomAndBride: GroomAndBride,
             OurStory: OurStory,
+            InvitationFooter: Footer,
         },
         methods: {
             getInvitationDetail() {
