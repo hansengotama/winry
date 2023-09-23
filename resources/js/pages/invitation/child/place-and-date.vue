@@ -25,7 +25,6 @@
         width: 80%;
         margin: 0 auto;
         padding-bottom: 60px;
-        font-weight: 800;
     }
 
     .place-and-date-title {
@@ -80,25 +79,30 @@
     .place-and-date-detail-desc {
         font-size: 13px;
         margin-bottom: 10px;
+        font-weight: bold;
     }
 
     .place-and-date-detail-date {
         font-size: 13px;
         margin-bottom: 2px;
+        font-weight: bold;
     }
 
     .place-and-date-detail-time {
         font-size: 13px;
         margin-bottom: 10px;
+        font-weight: bold;
     }
 
     .place-and-date-detail-place {
         font-size: 13px;
         margin-bottom: 2px;
+        font-weight: bold;
     }
 
     .place-and-date-detail-room {
         font-size: 13px;
+        font-weight: bold;
     }
 
     .place-and-date-detail-view-map-btn {
