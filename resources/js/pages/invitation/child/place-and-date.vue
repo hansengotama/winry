@@ -57,18 +57,20 @@
         z-index: 0;
         width: 100%; 
         height: calc(100% - 6px);;
-        background: linear-gradient(rgba(94, 94, 94, 0.6),rgba(94, 94, 94, 0.9));
+        background: linear-gradient(rgba(94, 94, 94, 0.6),rgba(94, 94, 94, 0.6));
     }
 
     .place-and-date-detail-description {
         position: absolute;
-        top: 28%;
         color: white;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
     }
 
     .place-and-date-detail-title {
@@ -115,14 +117,6 @@
     }
 
     @media (min-width: 720px) {
-        .place-and-date-detail-description {
-            top: 5%;
-        }
-        /* .place-and-date-section {
-            width: 100%;
-            padding-bottom: 0;
-        } */
-
         .place-and-date-title {
             font-size: 40px;
         }
@@ -160,55 +154,6 @@
             font-size: 20px;
         }
     }
-
-    @media (min-width: 800px) {
-        .place-and-date-detail-description {
-            top: 10%;
-        }
-    }
-
-    @media (min-width: 900px) {
-        .place-and-date-detail-description {
-            top: 15%;
-        }
-    }
-
-    @media (min-width: 1000px) {
-        .place-and-date-detail-description {
-            top: 18%;
-        }
-    }
-
-
-    /* @media (min-width: 1100px) {
-        .place-and-date-detail-title {
-            font-size: 50px;
-        }
-
-        .place-and-date-detail-desc {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .place-and-date-detail-date {
-            font-size: 28px;
-            margin-bottom: 2px;
-        }
-
-        .place-and-date-detail-time {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .place-and-date-detail-place {
-            font-size: 28px;
-            margin-bottom: 2px;
-        }
-
-        .place-and-date-detail-room {
-            font-size: 28px;
-        }
-    } */
 </style>
 
 <script>
