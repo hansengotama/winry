@@ -10,6 +10,7 @@
         <introduction></introduction>
         <groom-and-bride></groom-and-bride>
         <our-story></our-story>
+        <place-and-date></place-and-date>
         <thank-you></thank-you>
         <invitation-footer></invitation-footer>
     </div>
@@ -63,6 +64,7 @@
     import Introduction from "./child/introduction.vue"
     import GroomAndBride from "./child/groom-and-bride.vue"
     import OurStory from "./child/our-story.vue"
+    import PlaceAndDate from "./child/place-and-date.vue"
     import ThankYou from "./child/thank-you.vue"
     import Footer from "./child/footer.vue"
 
@@ -85,6 +87,7 @@
             Introduction: Introduction,
             GroomAndBride: GroomAndBride,
             OurStory: OurStory,
+            PlaceAndDate: PlaceAndDate,
             ThankYou: ThankYou,
             InvitationFooter: Footer,
         },

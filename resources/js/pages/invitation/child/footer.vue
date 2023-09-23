@@ -101,7 +101,7 @@
                 window.open("https://www.instagram.com/bocah_project/", "_blank")
             },
             redirectToWA() {
-                window.open("https://wa.me/08111814032", "_blank")
+                window.open("https://wa.me/+628111814032", "_blank")
             },
         }
     }

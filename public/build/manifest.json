@@ -64,12 +64,20 @@
     "file": "assets/image_w_1-92d94a33.JPG",
     "src": "resources/images/winry/image_w_1.JPG"
   },
+  "resources/images/winry/place-and-date-m.jpg": {
+    "file": "assets/place-and-date-m-9fedba7b.jpg",
+    "src": "resources/images/winry/place-and-date-m.jpg"
+  },
+  "resources/images/winry/place-and-date-w.jpg": {
+    "file": "assets/place-and-date-w-cec427ba.jpg",
+    "src": "resources/images/winry/place-and-date-w.jpg"
+  },
   "resources/images/winry/thank_you.jpg": {
     "file": "assets/thank_you-c1044706.jpg",
     "src": "resources/images/winry/thank_you.jpg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-71a47629.css",
+    "file": "assets/app-a55a80fe.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -80,6 +88,8 @@
       "assets/3-01b40382.jpg",
       "assets/2-1249a356.jpg",
       "assets/4-960ab9fc.jpg",
+      "assets/place-and-date-w-cec427ba.jpg",
+      "assets/place-and-date-m-9fedba7b.jpg",
       "assets/thank_you-c1044706.jpg",
       "assets/bocahproject-ce632e00.png",
       "assets/ig_icon-080551c6.png",
@@ -89,9 +99,9 @@
       "assets/image_m_1-f3c5f605.JPG"
     ],
     "css": [
-      "assets/app-71a47629.css"
+      "assets/app-a55a80fe.css"
     ],
-    "file": "assets/app-82b9ce8b.js",
+    "file": "assets/app-2b0a7a23.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
