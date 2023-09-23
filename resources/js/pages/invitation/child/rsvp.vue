@@ -78,6 +78,7 @@
         padding: 15px 12px;
         font-size: 20px;
         font-family: 'Abhaya Libre';
+        color: #5E5E5E;
     }
 
     .rsvp-confirmation-button {
