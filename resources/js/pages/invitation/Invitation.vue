@@ -85,7 +85,7 @@
         methods: {
             getInvitationDetail() {
                 requestUrl.get("/invitations/" + this.getTokenFromURL()).then((response) => {
-                    if (response.data == null && response.data.data == null) {
+                    if (response.data == null) {
                         this.redirectToNotFound()
                         return
                     }
