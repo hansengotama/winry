@@ -16,6 +16,12 @@
     src: url('/public/fonts/AbhayaLibre-Bold.ttf');
 }
 
+@font-face {
+    font-family: Bebas Neue;
+    font-weight: normal;
+    src: url('/public/fonts/BebasNeue-Regular.ttf');
+}
+
 body {
     font-family: Abhaya Libre;
 }

@@ -7,12 +7,16 @@
     "file": "assets/AbhayaLibre-Regular-b636a4f7.ttf",
     "src": "public/fonts/AbhayaLibre-Regular.ttf"
   },
+  "public/fonts/BebasNeue-Regular.ttf": {
+    "file": "assets/BebasNeue-Regular-830ea186.ttf",
+    "src": "public/fonts/BebasNeue-Regular.ttf"
+  },
   "public/fonts/brigitha-signature.ttf": {
     "file": "assets/brigitha-signature-4617127f.ttf",
     "src": "public/fonts/brigitha-signature.ttf"
   },
   "resources/css/app.css": {
-    "file": "assets/app-92bd42a3.css",
+    "file": "assets/app-ef22c689.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -81,7 +85,7 @@
     "src": "resources/images/winry/thank_you.jpg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-81ba22ca.css",
+    "file": "assets/app-e23fd19b.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -104,9 +108,9 @@
       "assets/image_m_1-f3c5f605.JPG"
     ],
     "css": [
-      "assets/app-81ba22ca.css"
+      "assets/app-e23fd19b.css"
     ],
-    "file": "assets/app-04ba4f21.js",
+    "file": "assets/app-f3ed6840.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
