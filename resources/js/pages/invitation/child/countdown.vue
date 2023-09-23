@@ -8,9 +8,8 @@
         height: 350px;
         width: 100%;
         background-image: url('@/../images/winry/countdown1.jpg');
-        background-attachment: fixed;
         background-position: center;
-        background-repeat: initial;
+        background-repeat: no-repeat;
         background-size: contain;
     }
 </style>
