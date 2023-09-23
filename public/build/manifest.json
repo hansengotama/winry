@@ -65,7 +65,7 @@
     "src": "resources/images/winry/image_w_1.JPG"
   },
   "resources/js/app.css": {
-    "file": "assets/app-74c32ce3.css",
+    "file": "assets/app-3731a414.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -84,9 +84,9 @@
       "assets/image_m_1-f3c5f605.JPG"
     ],
     "css": [
-      "assets/app-74c32ce3.css"
+      "assets/app-3731a414.css"
     ],
-    "file": "assets/app-2a191a1d.js",
+    "file": "assets/app-90793fa5.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

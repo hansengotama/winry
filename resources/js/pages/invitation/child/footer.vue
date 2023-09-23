@@ -11,7 +11,7 @@
                     <img class="invitation-footer-icon-img" src="@/../images/ig_icon.png">
                 </div>
                 
-                <div class="invitation-footer-icon-img-container" style="margin-left: 5px;" @click="redirectToWA()">
+                <div class="invitation-footer-icon-img-container" style="margin-left: 8px;" @click="redirectToWA()">
                     <img class="invitation-footer-icon-img" src="@/../images/wa_icon.png">
                 </div>
             </div>
@@ -27,7 +27,6 @@
 
     .invitation-footer {
         width: 100%;
-        min-width: 200px;
         background-color: #525F51;
     }
 
@@ -72,6 +71,27 @@
         margin-top: 30px;
         font-size: 12px;
         color: white;
+    }
+
+    @media (min-width: 600px) {
+        .invitation-footer-container {
+            padding-top: 30px;
+            padding-bottom: 15px;
+        }
+
+        .invitation-footer-icon-img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .invitation-footer-name {
+            font-size: 18px;
+        }
+
+        .invitation-footer-music-container {
+            margin-top: 15px;
+            font-size: 14px;
+        }
     }
 </style>
 
