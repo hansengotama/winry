@@ -12,6 +12,7 @@
         <our-story></our-story>
         <place-and-date></place-and-date>
         <countdown></countdown>
+        <rsvp-form></rsvp-form>
         <thank-you></thank-you>
         <invitation-footer></invitation-footer>
     </div>
@@ -67,6 +68,7 @@
     import OurStory from "./child/our-story.vue"
     import PlaceAndDate from "./child/place-and-date.vue"
     import Countdown from "./child/countdown.vue"
+    import RsvpForm from "./child/rsvp.vue"
     import ThankYou from "./child/thank-you.vue"
     import Footer from "./child/footer.vue"
 
@@ -91,6 +93,7 @@
             OurStory: OurStory,
             PlaceAndDate: PlaceAndDate,
             Countdown: Countdown,
+            RsvpForm: RsvpForm,
             ThankYou: ThankYou,
             InvitationFooter: Footer,
         },
