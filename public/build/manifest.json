@@ -40,8 +40,20 @@
     "file": "assets/groom-605d7e67.png",
     "src": "resources/images/winry/groom.png"
   },
+  "resources/images/winry/image_1.JPG": {
+    "file": "assets/image_1-48a23ee5.JPG",
+    "src": "resources/images/winry/image_1.JPG"
+  },
+  "resources/images/winry/image_m_1.JPG": {
+    "file": "assets/image_m_1-f3c5f605.JPG",
+    "src": "resources/images/winry/image_m_1.JPG"
+  },
+  "resources/images/winry/image_w_1.JPG": {
+    "file": "assets/image_w_1-92d94a33.JPG",
+    "src": "resources/images/winry/image_w_1.JPG"
+  },
   "resources/js/app.css": {
-    "file": "assets/app-dfa32093.css",
+    "file": "assets/app-86a1df12.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -51,12 +63,15 @@
       "assets/1-bf41604d.jpg",
       "assets/3-01b40382.jpg",
       "assets/2-1249a356.jpg",
-      "assets/4-960ab9fc.jpg"
+      "assets/4-960ab9fc.jpg",
+      "assets/image_1-48a23ee5.JPG",
+      "assets/image_w_1-92d94a33.JPG",
+      "assets/image_m_1-f3c5f605.JPG"
     ],
     "css": [
-      "assets/app-dfa32093.css"
+      "assets/app-86a1df12.css"
     ],
-    "file": "assets/app-cf357b5e.js",
+    "file": "assets/app-4e1d43fa.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
