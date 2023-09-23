@@ -28,7 +28,7 @@
     }
 
     .music-icon {
-        width: 80px;
+        width: 60px;
         cursor: pointer;
     }
 </style>
