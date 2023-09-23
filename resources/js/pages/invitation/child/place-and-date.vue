@@ -57,7 +57,7 @@
         z-index: 0;
         width: 100%; 
         height: calc(100% - 6px);;
-        background: linear-gradient(rgba(94, 94, 94, 0.6),rgba(94, 94, 94, 0.6));
+        background: linear-gradient(rgba(94, 94, 94, 0.7),rgba(94, 94, 94, 0.7));
     }
 
     .place-and-date-detail-description {
