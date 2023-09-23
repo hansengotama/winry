@@ -24,7 +24,6 @@
 </template>
 
 <style scoped>
-
     .invitation-footer {
         width: 100%;
         background-color: #525F51;

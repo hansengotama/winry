@@ -64,8 +64,12 @@
     "file": "assets/image_w_1-92d94a33.JPG",
     "src": "resources/images/winry/image_w_1.JPG"
   },
+  "resources/images/winry/thank_you.jpg": {
+    "file": "assets/thank_you-c1044706.jpg",
+    "src": "resources/images/winry/thank_you.jpg"
+  },
   "resources/js/app.css": {
-    "file": "assets/app-3731a414.css",
+    "file": "assets/app-71a47629.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -76,6 +80,7 @@
       "assets/3-01b40382.jpg",
       "assets/2-1249a356.jpg",
       "assets/4-960ab9fc.jpg",
+      "assets/thank_you-c1044706.jpg",
       "assets/bocahproject-ce632e00.png",
       "assets/ig_icon-080551c6.png",
       "assets/wa_icon-92caa699.png",
@@ -84,9 +89,9 @@
       "assets/image_m_1-f3c5f605.JPG"
     ],
     "css": [
-      "assets/app-3731a414.css"
+      "assets/app-71a47629.css"
     ],
-    "file": "assets/app-90793fa5.js",
+    "file": "assets/app-82b9ce8b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
