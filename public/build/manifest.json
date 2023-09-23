@@ -40,6 +40,10 @@
     "file": "assets/ig_icon-080551c6.png",
     "src": "resources/images/ig_icon.png"
   },
+  "resources/images/music.png": {
+    "file": "assets/music-7b8d8e3b.png",
+    "src": "resources/images/music.png"
+  },
   "resources/images/wa_icon.png": {
     "file": "assets/wa_icon-92caa699.png",
     "src": "resources/images/wa_icon.png"
@@ -47,6 +51,10 @@
   "resources/images/winry/bride.png": {
     "file": "assets/bride-9a338a46.png",
     "src": "resources/images/winry/bride.png"
+  },
+  "resources/images/winry/countdown1.jpg": {
+    "file": "assets/countdown1-4c4771c6.jpg",
+    "src": "resources/images/winry/countdown1.jpg"
   },
   "resources/images/winry/groom.png": {
     "file": "assets/groom-605d7e67.png",
@@ -77,11 +85,12 @@
     "src": "resources/images/winry/thank_you.jpg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-ecbcedc7.css",
+    "file": "assets/app-365102d2.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
+      "assets/music-7b8d8e3b.png",
       "assets/groom-605d7e67.png",
       "assets/bride-9a338a46.png",
       "assets/1-bf41604d.jpg",
@@ -95,13 +104,14 @@
       "assets/ig_icon-080551c6.png",
       "assets/wa_icon-92caa699.png",
       "assets/image_1-48a23ee5.JPG",
+      "assets/countdown1-4c4771c6.jpg",
       "assets/image_w_1-92d94a33.JPG",
       "assets/image_m_1-f3c5f605.JPG"
     ],
     "css": [
-      "assets/app-ecbcedc7.css"
+      "assets/app-365102d2.css"
     ],
-    "file": "assets/app-f06c0e4e.js",
+    "file": "assets/app-7394ca0e.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

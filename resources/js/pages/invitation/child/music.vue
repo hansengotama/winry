@@ -1,6 +1,6 @@
 <template>
     <div class="music-container">
-        <img :src="baseURL + '/images/logo.png'" 
+        <img src="@/../images/music.png" 
             :style="{ transform: `rotate(${currentRotation}deg)` }"
              :class="isAudioPlay ? 'rotation' : ''" 
              class="music-icon" 
@@ -28,7 +28,7 @@
     }
 
     .music-icon {
-        width: 60px;
+        width: 80px;
         cursor: pointer;
     }
 </style>
@@ -39,16 +39,9 @@
         data() {
             return {
                 currentRotation: 0,
-                baseURL: "",
             }
         },
-        mounted() {
-            this.initBaseURL()
-        },
         methods: {
-            initBaseURL() {
-                this.baseURL = window.location.origin
-            },
             playAndPauseMusic() {
                 const isWantToPause = this.isAudioPlay
                 if (isWantToPause) {

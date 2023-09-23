@@ -24,7 +24,7 @@
     .place-and-date-section {
         width: 80%;
         margin: 0 auto;
-        padding-bottom: 60px;
+        padding-bottom: 80px;
     }
 
     .place-and-date-title {
