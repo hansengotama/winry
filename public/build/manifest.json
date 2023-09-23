@@ -40,6 +40,10 @@
     "file": "assets/bocahproject-ce632e00.png",
     "src": "resources/images/bocahproject.png"
   },
+  "resources/images/countdown.png": {
+    "file": "assets/countdown-d57165ab.png",
+    "src": "resources/images/countdown.png"
+  },
   "resources/images/ig_icon.png": {
     "file": "assets/ig_icon-080551c6.png",
     "src": "resources/images/ig_icon.png"
@@ -85,7 +89,7 @@
     "src": "resources/images/winry/thank_you.jpg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-e23fd19b.css",
+    "file": "assets/app-c9c7b347.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -104,13 +108,14 @@
       "assets/ig_icon-080551c6.png",
       "assets/wa_icon-92caa699.png",
       "assets/image_1-48a23ee5.JPG",
+      "assets/countdown-d57165ab.png",
       "assets/image_w_1-92d94a33.JPG",
       "assets/image_m_1-f3c5f605.JPG"
     ],
     "css": [
-      "assets/app-e23fd19b.css"
+      "assets/app-c9c7b347.css"
     ],
-    "file": "assets/app-f3ed6840.js",
+    "file": "assets/app-e086835e.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

@@ -24,7 +24,7 @@
 <style scoped>
     .countdown-background {
         height: 350px;
-        background-image: url(http://127.0.0.1:5173/resources/images/countdown.png);
+        background-image: url(@/../images/countdown.png);
         background-position: center;
         background-size: cover;
         background-attachment: scroll;
