@@ -17,7 +17,7 @@
             </div>
 
             <div class="invitation-footer-music-container">
-                Backsound: La Vie En Rose - Emily Watts
+                Background music: La Vie En Rose - Emily Watts
             </div>
         </div>
     </div>
