@@ -31,6 +31,19 @@
                     <textarea class="rsvp-form-textarea-value" rows="4" v-model="form.wishes" placeholder="Enter you wishes" @keyup="validateWishes()"></textarea>
                     <div v-show="error.wishes != ''" class="rsvp-form-error-message">{{ error.wishes }}</div>
                 </div>
+                <div class="rsvp-form-control">
+                    <div class="rsvp-form-custom">Wishes Icon</div>
+                    <div class="rsvp-form-icon-container">
+                        <img src="@/../images/Icons/1.png" class="rsvp-icon" :class="form.icon_type == '1' ? 'rsvp-icon-active' : ''" @click="changeIcon('1')">
+                        <img src="@/../images/Icons/2.png" class="rsvp-icon" :class="form.icon_type == '2' ? 'rsvp-icon-active' : ''" @click="changeIcon('2')">
+                        <img src="@/../images/Icons/3.png" class="rsvp-icon" :class="form.icon_type == '3' ? 'rsvp-icon-active' : ''" @click="changeIcon('3')">
+                        <img src="@/../images/Icons/4.png" class="rsvp-icon" :class="form.icon_type == '4' ? 'rsvp-icon-active' : ''" @click="changeIcon('4')">
+                        <img src="@/../images/Icons/5.png" class="rsvp-icon" :class="form.icon_type == '5' ? 'rsvp-icon-active' : ''" @click="changeIcon('5')">
+                        <img src="@/../images/Icons/6.png" class="rsvp-icon" :class="form.icon_type == '6' ? 'rsvp-icon-active' : ''" @click="changeIcon('6')">
+                        <img src="@/../images/Icons/7.png" class="rsvp-icon" :class="form.icon_type == '7' ? 'rsvp-icon-active' : ''" @click="changeIcon('7')">
+                        <img src="@/../images/Icons/8.png" class="rsvp-icon" :class="form.icon_type == '8' ? 'rsvp-icon-active' : ''" @click="changeIcon('8')">
+                    </div>
+                </div>
 
                 <div class="rsvp-confirmation-button" @click="confirmation()">Confirmation</div>
             </div>
@@ -68,7 +81,7 @@
         font-size: 20px;
     }
 
-    .rsvp-form-input, .rsvp-form-textarea, .rsvp-form-select {
+    .rsvp-form-input, .rsvp-form-textarea, .rsvp-form-select, .rsvp-form-custom {
         color: #5E5E5E;
         margin-top: 40px;
         font-size: 20px;
@@ -113,8 +126,27 @@
         font-size: 14px;
     }
 
+    .rsvp-form-icon-container {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        padding: 15px 0;
+    }
+
+    .rsvp-icon {
+        width: 50px;
+        cursor: pointer;
+        padding: 3px;
+    }
+
+    .rsvp-icon-active {
+        border: 3px solid #3A3A3A;
+        border-radius: 50%;
+        padding: 0px;
+    }
+
     @media (max-width: 600px) {
-        .rsvp-form-input, .rsvp-form-textarea, .rsvp-form-select {
+        .rsvp-form-input, .rsvp-form-textarea, .rsvp-form-select, .rsvp-form-custom {
             font-size: 16px;
         }
 
@@ -135,7 +167,8 @@
                     is_attend: "yes",
                     email: "hansenwu98@gmail.com",
                     number_of_pax: 1,
-                    wishes: "123"
+                    wishes: "123",
+                    icon_type: "1",
                 },
                 error: {
                     email: "",
@@ -155,6 +188,9 @@
                 if (isSuccess) {
                     this.submitRSVP()
                 }
+            },
+            changeIcon(icon) {
+                this.form.icon_type = icon
             },
             validate() {
                 const isEmailValid = this.validateEmail()

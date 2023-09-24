@@ -36,6 +36,38 @@
     "file": "assets/4-960ab9fc.jpg",
     "src": "resources/images/Assets/4.jpg"
   },
+  "resources/images/Icons/1.png": {
+    "file": "assets/1-168df057.png",
+    "src": "resources/images/Icons/1.png"
+  },
+  "resources/images/Icons/2.png": {
+    "file": "assets/2-b4b4771f.png",
+    "src": "resources/images/Icons/2.png"
+  },
+  "resources/images/Icons/3.png": {
+    "file": "assets/3-38cef251.png",
+    "src": "resources/images/Icons/3.png"
+  },
+  "resources/images/Icons/4.png": {
+    "file": "assets/4-948f2268.png",
+    "src": "resources/images/Icons/4.png"
+  },
+  "resources/images/Icons/5.png": {
+    "file": "assets/5-b6e15d73.png",
+    "src": "resources/images/Icons/5.png"
+  },
+  "resources/images/Icons/6.png": {
+    "file": "assets/6-911f816b.png",
+    "src": "resources/images/Icons/6.png"
+  },
+  "resources/images/Icons/7.png": {
+    "file": "assets/7-41006a5e.png",
+    "src": "resources/images/Icons/7.png"
+  },
+  "resources/images/Icons/8.png": {
+    "file": "assets/8-84766b63.png",
+    "src": "resources/images/Icons/8.png"
+  },
   "resources/images/bocahproject.png": {
     "file": "assets/bocahproject-ce632e00.png",
     "src": "resources/images/bocahproject.png"
@@ -89,7 +121,7 @@
     "src": "resources/images/winry/thank_you.jpg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-9e3f6073.css",
+    "file": "assets/app-1c3e5dbf.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -103,6 +135,14 @@
       "assets/4-960ab9fc.jpg",
       "assets/place-and-date-w-cec427ba.jpg",
       "assets/place-and-date-m-9fedba7b.jpg",
+      "assets/1-168df057.png",
+      "assets/2-b4b4771f.png",
+      "assets/3-38cef251.png",
+      "assets/4-948f2268.png",
+      "assets/5-b6e15d73.png",
+      "assets/6-911f816b.png",
+      "assets/7-41006a5e.png",
+      "assets/8-84766b63.png",
       "assets/thank_you-c1044706.jpg",
       "assets/bocahproject-ce632e00.png",
       "assets/ig_icon-080551c6.png",
@@ -113,9 +153,9 @@
       "assets/image_m_1-f3c5f605.JPG"
     ],
     "css": [
-      "assets/app-9e3f6073.css"
+      "assets/app-1c3e5dbf.css"
     ],
-    "file": "assets/app-ee6a61c2.js",
+    "file": "assets/app-fe930b4c.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
