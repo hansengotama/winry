@@ -91,7 +91,8 @@
     }
 
     .rsvp-form-disable {
-        background-color: #dbdbdb;
+        background: white;
+        opacity: 0.6;
     }
 
     .rsvp-confirmation-button {
