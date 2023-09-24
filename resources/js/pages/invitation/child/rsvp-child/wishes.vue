@@ -93,7 +93,6 @@
         color: #5E5E5E;
     }
 
-
     @media (max-width: 720px) {
         .wishes-title {
             font-size: 32px;

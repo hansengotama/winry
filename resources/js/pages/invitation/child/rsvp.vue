@@ -28,8 +28,11 @@
                 </div>
                 <div class="rsvp-form-control">
                     <div class="rsvp-form-textarea">Wishes for Ryan & Winnie</div>
-                    <textarea class="rsvp-form-textarea-value" rows="4" v-model="form.wishes" placeholder="Enter you wishes" @keyup="validateWishes()" :class="isFormStored ? 'rsvp-form-disable' : ''" :disabled="isFormStored"></textarea>
-                    <div v-show="error.wishes != ''" class="rsvp-form-error-message">{{ error.wishes }}</div>
+                    <textarea class="rsvp-form-textarea-value" rows="4" v-model="form.wishes" placeholder="Enter you wishes" maxlength="350" @keyup="validateWishes()" :class="isFormStored ? 'rsvp-form-disable' : ''" :disabled="isFormStored"></textarea>
+                    <div style="display: flex; justify-content: space-between; align-items: end;">
+                        <div class="rsvp-form-error-message">{{ error.wishes }}</div>
+                        <div style="margin-top: 6px; font-size: 14px;">{{ form.wishes.length }}/350</div>
+                    </div>
                 </div>
                 <div class="rsvp-form-control">
                     <div class="rsvp-form-custom">Wishes Icon</div>
