@@ -12,6 +12,10 @@
                 margin: 0;
                 padding: 0;
             }
+
+            .no-scroll {
+               overflow: hidden;
+            }
         </style>
         @vite('resources/css/app.css')
     </head>

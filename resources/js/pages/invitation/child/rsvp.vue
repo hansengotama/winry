@@ -36,6 +36,10 @@
             </div>
         </div>
         
+        <success-rsvp-modal
+            v-show="isShowSuccessModal"
+            @close="closeModal"
+        />
     </div>
 </template>
 
@@ -109,6 +113,8 @@
 </style>
 
 <script>
+    import SuccessRsvpModal from "./rsvp-child/success-rsvp-modal.vue"
+
     export default {
         props: ['user'],
         data() {
@@ -123,8 +129,12 @@
                     email: "",
                     wishes: ""
                 },
-                isSubmitted: false
+                isSubmitted: false,
+                isShowSuccessModal: false,
             }
+        },
+        components: {
+            SuccessRsvpModal: SuccessRsvpModal,
         },
         methods: {
             confirmation() {
@@ -176,8 +186,16 @@
                 return emailRegex.test(email);
             },
             submitRSVP() {
-
+                this.showModal()
+            },
+            showModal() {
+                this.isShowSuccessModal = true
+                document.body.classList.add("no-scroll");  
+            },
+            closeModal() {
+                this.isShowSuccessModal = false
+                document.body.classList.remove("no-scroll");
             }
-        }
+        },
     }
 </script>
