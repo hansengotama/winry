@@ -40,7 +40,8 @@
 
 <style scoped>
     .our-story {
-        padding: 30px 0;
+        padding-top: 30px;
+        padding-bottom: 20px;
         width: 80%;
         margin: 0 auto;
     }
@@ -54,6 +55,7 @@
     .our-story-description-text {
         font-size: 14px;
         padding: 10px 0;
+        color: #5E5E5E;
     }
 
     .our-story-image-container {
