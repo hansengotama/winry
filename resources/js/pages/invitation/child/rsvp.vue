@@ -31,7 +31,7 @@
                     <textarea class="rsvp-form-textarea-value" rows="4" v-model="form.wishes" placeholder="Enter you wishes" maxlength="350" @keyup="validateWishes()" :class="isFormStored ? 'rsvp-form-disable' : ''" :disabled="isFormStored"></textarea>
                     <div style="display: flex; justify-content: space-between; align-items: end;">
                         <div class="rsvp-form-error-message">{{ error.wishes }}</div>
-                        <div style="margin-top: 6px; font-size: 14px;">{{ form.wishes.length }}/350</div>
+                        <div style="margin-top: 6px; font-size: 14px; color: #5E5E5E; opacity: 0.8;">{{ form.wishes.length }}/350</div>
                     </div>
                 </div>
                 <div class="rsvp-form-control">
@@ -100,7 +100,9 @@
     .rsvp-form-input-value , .rsvp-form-textarea-value, .rsvp-form-select-value {
         margin-top: 10px;
         width: -webkit-fill-available;
-        -webkit-appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none; 
+        appearance: none;
         border-radius: 5px;
         background: #FFF;
         border: none;
