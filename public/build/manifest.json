@@ -89,7 +89,7 @@
     "src": "resources/images/winry/thank_you.jpg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-a7826082.css",
+    "file": "assets/app-ac2ae9b6.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -113,9 +113,9 @@
       "assets/image_m_1-f3c5f605.JPG"
     ],
     "css": [
-      "assets/app-a7826082.css"
+      "assets/app-ac2ae9b6.css"
     ],
-    "file": "assets/app-d4bcbe42.js",
+    "file": "assets/app-796c3dcb.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

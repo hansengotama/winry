@@ -111,6 +111,16 @@
         color: red;
         font-size: 14px;
     }
+
+    @media (max-width: 600px) {
+        .rsvp-form-input, .rsvp-form-textarea, .rsvp-form-select {
+            font-size: 16px;
+        }
+
+        .rsvp-form-input-value , .rsvp-form-textarea-value, .rsvp-form-select-value {
+            font-size: 16px;
+        }
+    }
 </style>
 
 <script>
