@@ -77,6 +77,7 @@
     .rsvp-form-input-value , .rsvp-form-textarea-value, .rsvp-form-select-value {
         margin-top: 10px;
         width: -webkit-fill-available;
+        -webkit-appearance: none;
         border-radius: 5px;
         background: #FFF;
         border: none;
