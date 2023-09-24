@@ -6,7 +6,7 @@
             <div class="rsvp-form-container">
                 <div class="rsvp-form-control">
                     <div class="rsvp-form-input">Full Name</div>
-                    <input class="rsvp-form-input-value" type="text">
+                    <input class="rsvp-form-input-value rsvp-form-disable" type="text" :value="user.name" disabled>
                 </div>
                 <div class="rsvp-form-control">
                     <div class="rsvp-form-select">Attendance</div>
@@ -81,6 +81,10 @@
         color: #5E5E5E;
     }
 
+    .rsvp-form-disable {
+        background-color: #dbdbdb;
+    }
+
     .rsvp-confirmation-button {
         border-radius: 36px;
         background: #5E5E5E;
@@ -92,3 +96,9 @@
         cursor: pointer;
     }
 </style>
+
+<script>
+    export default {
+        props: ['user']
+    }
+</script>

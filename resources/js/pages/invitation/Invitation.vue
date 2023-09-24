@@ -12,7 +12,7 @@
         <our-story></our-story>
         <place-and-date></place-and-date>
         <countdown></countdown>
-        <rsvp-form></rsvp-form>
+        <rsvp-form :user="user"></rsvp-form>
         <thank-you></thank-you>
         <invitation-footer></invitation-footer>
     </div>
