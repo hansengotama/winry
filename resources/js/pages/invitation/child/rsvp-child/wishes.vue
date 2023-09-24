@@ -35,7 +35,8 @@
     }
 
     .wishes-section {
-        padding: 65px 0px;
+        padding-top: 65px;
+        padding-bottom: 30px;
         background-color: white;
         border-top-right-radius: 167px;
         border-top-left-radius: 167px;
