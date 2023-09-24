@@ -54,6 +54,11 @@
             v-show="isShowSuccessModal"
             @close="closeModal"
         />
+        
+        <failed-rsvp-modal
+            v-show="isShowFailedModal"
+            @close="closeModal"
+        />
     </div>
 </template>
 
@@ -172,6 +177,7 @@
 <script>
     import requestUrl from "../../../helper/request"
     import SuccessRsvpModal from "./rsvp-child/success-rsvp-modal.vue"
+    import FailedRsvpModal from "./rsvp-child/fail-rsvp-modal.vue"
 
     export default {
         props: ['user'],
@@ -190,11 +196,13 @@
                 },
                 isSubmitted: false,
                 isShowSuccessModal: false,
+                isShowFailedModal: false,
                 isFormStored: false,
             }
         },
         components: {
             SuccessRsvpModal: SuccessRsvpModal,
+            FailedRsvpModal: FailedRsvpModal,
         },
         methods: {
             confirmation() {
@@ -270,20 +278,29 @@
                     wishes: this.form.wishes,
                     wishes_icon_type: this.form.icon_type,
                 }).then((response) => {
-                    if (response.error == null) {
+                    if (response.status == 200) {
                         this.$emit('getInvitationDetail')
-                        this.showModal()
+                        this.showSuccessModal()
+                        return
                     }
+
+                    this.showFailedModal()
                 })
                 
             },
-            showModal() {
+            showSuccessModal() {
                 this.isShowSuccessModal = true
+                document.body.style.top = `-${window.scrollY}px`; 
+                document.body.classList.add("no-scroll"); 
+            },
+            showFailedModal() {
+                this.isShowFailedModal = true
                 document.body.style.top = `-${window.scrollY}px`; 
                 document.body.classList.add("no-scroll"); 
             },
             closeModal() {
                 this.isShowSuccessModal = false
+                this.isShowFailedModal = false
                 document.body.classList.remove("no-scroll");
                 const scrollY = document.body.style.top;
                 window.scrollTo(0, parseInt(scrollY || '0') * -1);
