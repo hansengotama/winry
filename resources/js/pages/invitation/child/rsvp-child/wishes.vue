@@ -62,7 +62,7 @@
 
     .wishes-part {
         padding: 10px;
-        max-height: 600px;
+        max-height: 400px;
         overflow-y: auto;
     }
 
