@@ -76,7 +76,7 @@
     .wishes-comment-section {
         margin-left: 10px;
         padding: 12px;
-        border: 1px solid #5E5E5E;
+        border: 1px solid #D9D9D9;
         border-radius: 5px;
         font-size: 20px;
         width: 100%;
@@ -96,6 +96,9 @@
     @media (max-width: 720px) {
         .wishes-title {
             font-size: 32px;
+        }
+        .wishes-description {
+            font-size: 14px;
         }
         .wishes-comment-section {
             font-size: 14px;
