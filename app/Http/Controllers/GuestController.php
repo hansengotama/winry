@@ -100,7 +100,7 @@ class GuestController extends Controller
             $this->repo->updateByAdmin($id, $request);
             return $this->apiHelper->getResponse(200, null);
         }catch (\Exception $e) {
-            return $this->apiHelper->getErrorResponse(500, "Error on create guest", $e->getMessage());
+            return $this->apiHelper->getErrorResponse(500, "Error on update guest", $e->getMessage());
         }
     }
 
@@ -115,6 +115,7 @@ class GuestController extends Controller
                 "max_attendance" => $guest->max_attendance,
                 "number_of_attendance" => $guest->number_of_attendance,
                 "wishes" => $guest->wishes,
+                "wishes_icon_type" => $guest->wishes_icon_type,
             ]);
         }catch (\Exception $e) {
             return $this->apiHelper->getErrorResponse(404, "Invitation not found");
@@ -123,15 +124,33 @@ class GuestController extends Controller
 
     public function updateByGuess(string $token, Request $request) {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required',
             'is_attend' => 'required',
-            'number_of_attendance' => 'required',
             "wishes" => 'required',
-        ]);
+            "wishes_icon_type" => 'required'
+        ]);     
 
         if ($validator->fails()) {
             return $this->apiHelper->getErrorResponse(422, "Error Validation", $validator->errors());
+        }
+
+        if ($request->is_attend == true) {
+            $validator = Validator::make($request->all(), [
+                'number_of_attendance' => 'required',
+                'email' => 'required|email',
+            ]);     
+
+            if ($validator->fails()) {
+                return $this->apiHelper->getErrorResponse(422, "Error Validation", $validator->errors());
+            } 
+
+            if ($request->number_of_attendance <= 0) {
+                return $this->apiHelper->getErrorResponse(500, "Number of attendance cannot less than 0");
+            }
+        }
+
+        $allowedValues = array("1", "2", "3", "4", "5", "6", "7", "8");
+        if (!in_array($request->wishes_icon_type, $allowedValues)) {
+            return $this->apiHelper->getErrorResponse(422, "Error Validation", "invalid wishes icon type value");
         }
 
         $guest = null;
@@ -143,6 +162,21 @@ class GuestController extends Controller
 
         if ($guest == null) {
             return $this->apiHelper->getErrorResponse(404, "Invitation token not found");
+        }
+
+        if ($guest->is_attend !== null) {
+            return $this->apiHelper->getErrorResponse(500, "Invitation has been submitted before");
+        }
+
+        if ($request->number_of_attendance > $guest->max_attendance) {
+            return $this->apiHelper->getErrorResponse(500, "Number of attendance cannot more than max attendance");
+        }
+
+        try {
+            $this->repo->updateByGuess($guest->id, $request);
+            return $this->apiHelper->getResponse(200, null);
+        }catch (\Exception $e) {
+            return $this->apiHelper->getErrorResponse(500, "Error on submit invitation", $e->getMessage());
         }
     }
 

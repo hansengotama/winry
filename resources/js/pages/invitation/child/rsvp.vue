@@ -10,42 +10,43 @@
                 </div>
                 <div class="rsvp-form-control">
                     <div class="rsvp-form-select">RSVP</div>
-                    <select class="rsvp-form-select-value" v-model="form.is_attend">
+                    <select class="rsvp-form-select-value" :class="isFormStored ? 'rsvp-form-disable' : ''" v-model="form.is_attend" :disabled="isFormStored">
                         <option value="yes">Definitely, Yes!</option>
                         <option value="no">Sorry, I can’t attend your wedding</option>
                     </select>
                 </div>
                 <div class="rsvp-form-control" v-if="form.is_attend == 'yes'">
                     <div class="rsvp-form-input">Email</div>
-                    <input class="rsvp-form-input-value" type="text" placeholder="Enter your email" v-model="form.email" @keyup="validateEmail()">
+                    <input class="rsvp-form-input-value" type="text" placeholder="Enter your email" :class="isFormStored ? 'rsvp-form-disable' : ''" v-model="form.email" @keyup="validateEmail()" :disabled="isFormStored">
                     <div v-show="error.email != ''" class="rsvp-form-error-message">{{ error.email }}</div>
                 </div>
                 <div class="rsvp-form-control" v-if="form.is_attend == 'yes'">
                     <div class="rsvp-form-select">Number of Pax</div>
-                    <select class="rsvp-form-select-value" v-model="form.number_of_pax">
+                    <select class="rsvp-form-select-value" v-model="form.number_of_pax" :class="isFormStored ? 'rsvp-form-disable' : ''" :disabled="isFormStored">
                         <option :value="i" v-for="i in user.max_attendance">{{ i }}</option>
                     </select>
                 </div>
                 <div class="rsvp-form-control">
                     <div class="rsvp-form-textarea">Wishes for Ryan & Winnie</div>
-                    <textarea class="rsvp-form-textarea-value" rows="4" v-model="form.wishes" placeholder="Enter you wishes" @keyup="validateWishes()"></textarea>
+                    <textarea class="rsvp-form-textarea-value" rows="4" v-model="form.wishes" placeholder="Enter you wishes" @keyup="validateWishes()" :class="isFormStored ? 'rsvp-form-disable' : ''" :disabled="isFormStored"></textarea>
                     <div v-show="error.wishes != ''" class="rsvp-form-error-message">{{ error.wishes }}</div>
                 </div>
                 <div class="rsvp-form-control">
                     <div class="rsvp-form-custom">Wishes Icon</div>
                     <div class="rsvp-form-icon-container">
-                        <img src="@/../images/Icons/1.png" class="rsvp-icon" :class="form.icon_type == '1' ? 'rsvp-icon-active' : ''" @click="changeIcon('1')">
-                        <img src="@/../images/Icons/2.png" class="rsvp-icon" :class="form.icon_type == '2' ? 'rsvp-icon-active' : ''" @click="changeIcon('2')">
-                        <img src="@/../images/Icons/3.png" class="rsvp-icon" :class="form.icon_type == '3' ? 'rsvp-icon-active' : ''" @click="changeIcon('3')">
-                        <img src="@/../images/Icons/4.png" class="rsvp-icon" :class="form.icon_type == '4' ? 'rsvp-icon-active' : ''" @click="changeIcon('4')">
-                        <img src="@/../images/Icons/5.png" class="rsvp-icon" :class="form.icon_type == '5' ? 'rsvp-icon-active' : ''" @click="changeIcon('5')">
-                        <img src="@/../images/Icons/6.png" class="rsvp-icon" :class="form.icon_type == '6' ? 'rsvp-icon-active' : ''" @click="changeIcon('6')">
-                        <img src="@/../images/Icons/7.png" class="rsvp-icon" :class="form.icon_type == '7' ? 'rsvp-icon-active' : ''" @click="changeIcon('7')">
-                        <img src="@/../images/Icons/8.png" class="rsvp-icon" :class="form.icon_type == '8' ? 'rsvp-icon-active' : ''" @click="changeIcon('8')">
+                        <img src="@/../images/Icons/1.png" class="rsvp-icon" :class="form.icon_type == '1' ? 'rsvp-icon-active' : '', isFormStored ? 'cursor-not-allowed' : ''" @click="changeIcon('1')">
+                        <img src="@/../images/Icons/2.png" class="rsvp-icon" :class="form.icon_type == '2' ? 'rsvp-icon-active' : '', isFormStored ? 'cursor-not-allowed' : ''" @click="changeIcon('2')">
+                        <img src="@/../images/Icons/3.png" class="rsvp-icon" :class="form.icon_type == '3' ? 'rsvp-icon-active' : '', isFormStored ? 'cursor-not-allowed' : ''" @click="changeIcon('3')">
+                        <img src="@/../images/Icons/4.png" class="rsvp-icon" :class="form.icon_type == '4' ? 'rsvp-icon-active' : '', isFormStored ? 'cursor-not-allowed' : ''" @click="changeIcon('4')">
+                        <img src="@/../images/Icons/5.png" class="rsvp-icon" :class="form.icon_type == '5' ? 'rsvp-icon-active' : '', isFormStored ? 'cursor-not-allowed' : ''" @click="changeIcon('5')">
+                        <img src="@/../images/Icons/6.png" class="rsvp-icon" :class="form.icon_type == '6' ? 'rsvp-icon-active' : '', isFormStored ? 'cursor-not-allowed' : ''" @click="changeIcon('6')">
+                        <img src="@/../images/Icons/7.png" class="rsvp-icon" :class="form.icon_type == '7' ? 'rsvp-icon-active' : '', isFormStored ? 'cursor-not-allowed' : ''" @click="changeIcon('7')">
+                        <img src="@/../images/Icons/8.png" class="rsvp-icon" :class="form.icon_type == '8' ? 'rsvp-icon-active' : '', isFormStored ? 'cursor-not-allowed' : ''" @click="changeIcon('8')">
                     </div>
                 </div>
 
-                <div class="rsvp-confirmation-button" @click="confirmation()">Confirmation</div>
+                <div class="rsvp-confirmation-button" @click="confirmation()" v-if="!this.isFormStored">Confirmation</div>
+                <div class="rsvp-confirmation-done-button" v-else>Your RSVP has been noted</div>
             </div>
         </div>
         
@@ -101,10 +102,12 @@
     }
 
     .rsvp-form-textarea-value {
+        resize: none;
         vertical-align: top;
     }
 
     .rsvp-form-disable {
+        cursor: not-allowed;
         background: white;
         opacity: 0.6;
     }
@@ -139,10 +142,20 @@
         padding: 3px;
     }
 
+    .cursor-not-allowed {
+        cursor: not-allowed !important;
+    }
+
     .rsvp-icon-active {
         border: 3px solid #3A3A3A;
         border-radius: 50%;
         padding: 0px;
+    }
+
+    .rsvp-confirmation-done-button {
+        margin: 25px 0;
+        color: green;
+        text-align: center;
     }
 
     @media (max-width: 600px) {
@@ -157,6 +170,7 @@
 </style>
 
 <script>
+    import requestUrl from "../../../helper/request"
     import SuccessRsvpModal from "./rsvp-child/success-rsvp-modal.vue"
 
     export default {
@@ -165,9 +179,9 @@
             return {
                 form: {
                     is_attend: "yes",
-                    email: "hansenwu98@gmail.com",
+                    email: "",
                     number_of_pax: 1,
-                    wishes: "123",
+                    wishes: "",
                     icon_type: "1",
                 },
                 error: {
@@ -176,6 +190,7 @@
                 },
                 isSubmitted: false,
                 isShowSuccessModal: false,
+                isFormStored: false,
             }
         },
         components: {
@@ -190,10 +205,18 @@
                 }
             },
             changeIcon(icon) {
+                if (this.isFormStored) {
+                    return 
+                }
+
                 this.form.icon_type = icon
             },
             validate() {
-                const isEmailValid = this.validateEmail()
+                let isEmailValid = true
+                if (this.form.is_attend == "yes") {
+                    isEmailValid = this.validateEmail()
+                }
+
                 const isWishesValid = this.validateWishes()
 
                 return isEmailValid && isWishesValid
@@ -234,7 +257,25 @@
                 return emailRegex.test(email);
             },
             submitRSVP() {
-                this.showModal()
+                let isAttend = this.form.is_attend == "yes" 
+                if (!isAttend) {
+                    this.form.email = ""
+                    this.form.number_of_pax = 0
+                }
+
+                requestUrl.put("/invitations/" + this.user.token, {
+                    is_attend: isAttend,
+                    email: this.form.email,
+                    number_of_attendance: this.form.number_of_pax,
+                    wishes: this.form.wishes,
+                    wishes_icon_type: this.form.icon_type,
+                }).then((response) => {
+                    if (response.error == null) {
+                        this.$emit('getInvitationDetail')
+                        this.showModal()
+                    }
+                })
+                
             },
             showModal() {
                 this.isShowSuccessModal = true
@@ -246,7 +287,17 @@
                 document.body.classList.remove("no-scroll");
                 const scrollY = document.body.style.top;
                 window.scrollTo(0, parseInt(scrollY || '0') * -1);
-            }
+            },
+            setGuessData(data) {
+                console.log('masuk sini kah')
+                this.isFormStored = true
+
+                this.form.is_attend = data.is_attend ? "yes" : "no"
+                this.form.email = data.email
+                this.form.number_of_pax = data.number_of_attendance
+                this.form.wishes = data.wishes
+                this.form.icon_type = data.wishes_icon_type
+            },
         },
     }
 </script>

@@ -56,6 +56,17 @@ class GuestRepository {
         return $guest->save();
     }
 
+    public function updateByGuess(int $id, Request $request): bool {
+        $guest = Guest::find($id);
+        $guest->email = $request->email;
+        $guest->is_attend = $request->is_attend;
+        $guest->number_of_attendance = $request->number_of_attendance;
+        $guest->wishes = $request->wishes;
+        $guest->wishes_icon_type = $request->wishes_icon_type;
+
+        return $guest->save();
+    }
+
     public function delete(int $id) {
         $guest = Guest::find($id);
         return $guest->delete();

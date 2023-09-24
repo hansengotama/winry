@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('App\Http\Controllers')->group(function() {
     Route::get('/invitations/{token}', 'GuestController@getByGuest');
+    Route::put('/invitations/{token}', 'GuestController@updateByGuess');
 
     Route::prefix('/admin/auth')->group(function() {
         Route::post('/login', 'AuthController@login');    

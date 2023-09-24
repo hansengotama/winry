@@ -12,7 +12,7 @@
         <our-story></our-story>
         <place-and-date></place-and-date>
         <countdown></countdown>
-        <rsvp-form :user="user"></rsvp-form>
+        <rsvp-form :user="user" ref="rsvpform" @getInvitationDetail="getInvitationDetail"></rsvp-form>
         <thank-you></thank-you>
         <invitation-footer></invitation-footer>
     </div>
@@ -106,6 +106,9 @@
                     }
 
                     this.user = response.data.data
+                    if (this.user.is_attend != null) {
+                        this.$refs.rsvpform.setGuessData(this.user)
+                    }
                 })
             },
             getTokenFromURL() {
