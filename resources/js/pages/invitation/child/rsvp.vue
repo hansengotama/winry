@@ -122,9 +122,9 @@
             return {
                 form: {
                     is_attend: "yes",
-                    email: "",
+                    email: "hansenwu98@gmail.com",
                     number_of_pax: 1,
-                    wishes: ""
+                    wishes: "123"
                 },
                 error: {
                     email: "",

@@ -1,26 +1,16 @@
 <template>
-    <div class="modal-backdrop">
-      <div class="modal">
-        <div class="modal-header">
-            Thank you!  
+    <transition name="modal-fade">
+        <div class="modal-backdrop">
+            <div class="modal">
+                <div class="modal-header">Thank you!</div>
+                <div class="modal-body">Your RSVP has been noted</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-close" @click="close">Confirm</button>
+                </div>
+            </div>
         </div>
-  
-        <div class="modal-body">
-            Your RSVP has been noted
-        </div>
-  
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn-close"
-            @click="close"
-          >
-            Confirm
-          </button>
-        </div>
-      </div>
-    </div>
-  </template>
+    </transition>
+</template>
   
 
 <style scoped>
@@ -30,7 +20,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(1px) contrast(.8);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -68,6 +58,16 @@
         padding: 8px 30px;
         cursor: pointer;
         border: 0px;
+    }
+
+    .modal-fade-enter,
+    .modal-fade-leave-to {
+        opacity: 0;
+    }
+
+    .modal-fade-enter-active,
+    .modal-fade-leave-active {
+        transition: opacity .5s ease;
     }
 </style>
 
