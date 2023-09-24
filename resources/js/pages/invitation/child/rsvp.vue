@@ -164,7 +164,7 @@
     }
 
     .rsvp-confirmation-done-button {
-        margin: 25px 0;
+        margin: 20px 0;
         color: green;
         text-align: center;
     }

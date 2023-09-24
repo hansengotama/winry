@@ -30,6 +30,8 @@
     .wishes-container {
         width: 80%;
         margin: 0 auto;
+        padding-top: 30px;
+        padding-bottom: 40px;
     }
 
     .wishes-section {
