@@ -15,6 +15,7 @@
 
             .no-scroll {
                overflow: hidden;
+               position: fixed;
             }
         </style>
         @vite('resources/css/app.css')

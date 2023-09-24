@@ -17,7 +17,7 @@
                 </div>
                 <div class="rsvp-form-control" v-if="form.is_attend == 'yes'">
                     <div class="rsvp-form-input">Email</div>
-                    <input class="rsvp-form-input-value" type="text" placeholder="Input email" v-model="form.email" @keyup="validateEmail()">
+                    <input class="rsvp-form-input-value" type="text" placeholder="Enter your email" v-model="form.email" @keyup="validateEmail()">
                     <div v-show="error.email != ''" class="rsvp-form-error-message">{{ error.email }}</div>
                 </div>
                 <div class="rsvp-form-control" v-if="form.is_attend == 'yes'">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="rsvp-form-control">
                     <div class="rsvp-form-textarea">Wishes for Ryan & Winnie</div>
-                    <textarea class="rsvp-form-textarea-value" rows="4" v-model="form.wishes" placeholder="Input wishes" @keyup="validateWishes()"></textarea>
+                    <textarea class="rsvp-form-textarea-value" rows="4" v-model="form.wishes" placeholder="Enter you wishes" @keyup="validateWishes()"></textarea>
                     <div v-show="error.wishes != ''" class="rsvp-form-error-message">{{ error.wishes }}</div>
                 </div>
 
