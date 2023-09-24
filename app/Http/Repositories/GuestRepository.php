@@ -71,4 +71,8 @@ class GuestRepository {
         $guest = Guest::find($id);
         return $guest->delete();
     }
+
+    public function getWishes() {
+        return Guest::where("is_show_wishes", true)->whereNotNull("wishes")->get();
+    }
 }

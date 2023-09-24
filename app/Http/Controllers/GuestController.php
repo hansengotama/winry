@@ -193,4 +193,22 @@ class GuestController extends Controller
             return $this->apiHelper->getErrorResponse(500, "Error on delete guest", $e->getMessage());
         }
     }
+
+    public function getWishes() {
+        try {
+            $wishes = $this->repo->getWishes();
+            $data = [];
+            foreach ($wishes as $wish) {
+                $data[] = [
+                    "name"=> $wish->name,
+                    "wishes_icon_type"=>$wish->wishes_icon_type,
+                    "wishes"=> $wish->wishes
+                ];
+            }
+
+            return $this->apiHelper->getResponse(200, $data);
+        }catch (\Exception $e) {
+            return $this->apiHelper->getErrorResponse(500, "Error on get wishes", $e->getMessage());
+        }
+    }
 }

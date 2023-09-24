@@ -49,6 +49,7 @@
                 <div class="rsvp-confirmation-done-button" v-else>Your RSVP has been noted</div>
             </div>
         </div>
+        <wishes></wishes>
         
         <success-rsvp-modal
             v-show="isShowSuccessModal"
@@ -178,6 +179,7 @@
     import requestUrl from "../../../helper/request"
     import SuccessRsvpModal from "./rsvp-child/success-rsvp-modal.vue"
     import FailedRsvpModal from "./rsvp-child/fail-rsvp-modal.vue"
+    import Wishes from "./rsvp-child/wishes.vue"
 
     export default {
         props: ['user'],
@@ -203,6 +205,7 @@
         components: {
             SuccessRsvpModal: SuccessRsvpModal,
             FailedRsvpModal: FailedRsvpModal,
+            Wishes: Wishes,
         },
         methods: {
             confirmation() {
@@ -306,7 +309,6 @@
                 window.scrollTo(0, parseInt(scrollY || '0') * -1);
             },
             setGuessData(data) {
-                console.log('masuk sini kah')
                 this.isFormStored = true
 
                 this.form.is_attend = data.is_attend ? "yes" : "no"
