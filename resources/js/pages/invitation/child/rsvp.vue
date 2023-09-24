@@ -177,6 +177,10 @@
         .rsvp-form-input-value , .rsvp-form-textarea-value, .rsvp-form-select-value {
             font-size: 16px;
         }
+
+        .rsvp-description {
+            font-size: 16px;
+        }
     }
 </style>
 

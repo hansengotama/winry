@@ -118,7 +118,7 @@
 
     @media (min-width: 720px) {
         .place-and-date-title {
-            font-size: 40px;
+            font-size: 30px;
         }
 
         .place-and-date-detail-title {

@@ -100,7 +100,7 @@
             padding: 30px 0;
         }
         .our-story-title {
-            font-size: 40px;
+            font-size: 30px;
         }
         .our-story-description-text {
             font-size: 20px;
