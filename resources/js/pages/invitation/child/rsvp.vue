@@ -49,7 +49,7 @@
                 <div class="rsvp-confirmation-done-button" v-else>Your RSVP has been noted</div>
             </div>
         </div>
-        <wishes></wishes>
+        <wishes ref="wishes"></wishes>
         
         <success-rsvp-modal
             v-show="isShowSuccessModal"
@@ -283,6 +283,7 @@
                 }).then((response) => {
                     if (response.status == 200) {
                         this.$emit('getInvitationDetail')
+                        this.$refs.wishes.getWishes()
                         this.showSuccessModal()
                         return
                     }

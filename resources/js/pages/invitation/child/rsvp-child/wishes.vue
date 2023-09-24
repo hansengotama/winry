@@ -87,6 +87,10 @@
         margin-bottom: 8px;
     }
 
+    .wishes-wish {
+        white-space: pre-line;
+    }
+
 
     @media (max-width: 720px) {
         .wishes-title {
@@ -123,9 +127,6 @@
                         this.wishes = response.data.data
                     }
                 })
-            },
-            getIcon(icon_type) {
-                
             }
         }
     }
