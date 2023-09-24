@@ -11,10 +11,10 @@
                 <div class="place-and-date-detail-title">Wedding Reception</div>
                 <div class="place-and-date-detail-desc">An evening of good food, drinks & music</div>
                 <div class="place-and-date-detail-date">Sunday, December 10th, 2023</div>
-                <div class="place-and-date-detail-time">7.00 p.m. - 9.00 p.m.</div>
+                <div class="place-and-date-detail-time">6.30 p.m. - 9.00 p.m.</div>
                 <div class="place-and-date-detail-place">Pullman Kuala Lumpur City Centre</div>
                 <div class="place-and-date-detail-room">Grand Ballroom</div>
-                <div class="place-and-date-detail-view-map-btn" @click="redirectToMaps()">View Maps</div>
+                <div class="place-and-date-detail-view-map-btn" @click="redirectToMaps()">View maps</div>
             </div>
         </div>
     </div>
