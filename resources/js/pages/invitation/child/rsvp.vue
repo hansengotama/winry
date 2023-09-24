@@ -16,7 +16,7 @@
                     </select>
                 </div>
                 <div class="rsvp-form-control">
-                    <div class="rsvp-form-input">Phone Number</div>
+                    <div class="rsvp-form-input">Email</div>
                     <input class="rsvp-form-input-value" type="text">
                 </div>
                 <div class="rsvp-form-control">

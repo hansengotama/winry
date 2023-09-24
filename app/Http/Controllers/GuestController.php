@@ -108,12 +108,41 @@ class GuestController extends Controller
         try {
             $guest = $this->repo->findByToken($token);
             return $this->apiHelper->getResponse(200, [
-                "token"=> $guest->invitation_url,
-                "name"=> $guest->name,
-                "max_attendance" => $guest->max_attendance
+                "token" => $guest->invitation_url,
+                "name" => $guest->name,
+                "email" => $guest->email,
+                "is_attend" => $guest->is_attend,
+                "max_attendance" => $guest->max_attendance,
+                "number_of_attendance" => $guest->number_of_attendance,
+                "wishes" => $guest->wishes,
             ]);
         }catch (\Exception $e) {
             return $this->apiHelper->getErrorResponse(404, "Invitation not found");
+        }
+    }
+
+    public function updateByGuess(string $token, Request $request) {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'is_attend' => 'required',
+            'number_of_attendance' => 'required',
+            "wishes" => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->apiHelper->getErrorResponse(422, "Error Validation", $validator->errors());
+        }
+
+        $guest = null;
+        try {
+            $guest = $this->repo->findByToken($token);
+        }catch (\Exception $e) {
+            return $this->apiHelper->getErrorResponse(404, "Invitation token not found");
+        }
+
+        if ($guest == null) {
+            return $this->apiHelper->getErrorResponse(404, "Invitation token not found");
         }
     }
 
