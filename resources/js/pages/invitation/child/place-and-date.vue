@@ -14,7 +14,7 @@
                 <div class="place-and-date-detail-time">7.00 p.m. - 9.00 p.m.</div>
                 <div class="place-and-date-detail-place">Pullman Kuala Lumpur City Centre</div>
                 <div class="place-and-date-detail-room">Grand Ballroom</div>
-                <div class="place-and-date-detail-view-map-btn" @click="redirectToMaps()">view maps</div>
+                <div class="place-and-date-detail-view-map-btn" @click="redirectToMaps()">View Maps</div>
             </div>
         </div>
     </div>

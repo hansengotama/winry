@@ -9,7 +9,7 @@
                     <input class="rsvp-form-input-value rsvp-form-disable" type="text" :value="user.name" disabled>
                 </div>
                 <div class="rsvp-form-control">
-                    <div class="rsvp-form-select">Attendance</div>
+                    <div class="rsvp-form-select">RSVP</div>
                     <select class="rsvp-form-select-value" v-model="form.is_attend">
                         <option value="yes">Definitely, Yes!</option>
                         <option value="no">Sorry, I can’t attend your wedding</option>
