@@ -93,7 +93,7 @@
 
     .rsvp-form-input, .rsvp-form-textarea, .rsvp-form-select, .rsvp-form-custom {
         color: #5E5E5E;
-        margin-top: 40px;
+        margin-top: 25px;
         font-size: 20px;
     }
 

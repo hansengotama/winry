@@ -41,7 +41,7 @@
 <style scoped>
     .our-story {
         padding-top: 30px;
-        padding-bottom: 20px;
+        padding-bottom: 5px;
         width: 80%;
         margin: 0 auto;
     }
