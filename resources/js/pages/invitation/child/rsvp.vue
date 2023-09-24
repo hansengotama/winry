@@ -191,11 +191,14 @@
             },
             showModal() {
                 this.isShowSuccessModal = true
-                document.body.classList.add("no-scroll");  
+                document.body.style.top = `-${window.scrollY}px`; 
+                document.body.classList.add("no-scroll"); 
             },
             closeModal() {
                 this.isShowSuccessModal = false
                 document.body.classList.remove("no-scroll");
+                const scrollY = document.body.style.top;
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
             }
         },
     }

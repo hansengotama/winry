@@ -21,6 +21,7 @@
         left: 0;
         right: 0;
         backdrop-filter: blur(1px) contrast(.8);
+        background-color: rgba(0, 0, 0, 0.4);
         display: flex;
         justify-content: center;
         align-items: center;
