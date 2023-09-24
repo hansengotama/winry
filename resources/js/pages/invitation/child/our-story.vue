@@ -6,10 +6,10 @@
                 We met 4 years ago under unlikely circumstances at a friend’s gathering, and have never looked back since. We fell in love with each other’s authenticity, kindness, humour, and drive to build a better life together.
             </div>
             <div class="our-story-description-text">
-                We made a promise to always have each other’s backs, and to support each other in everything that we do. With this promise, Ryan proposed to Winnie in December 2021 to commit as a lifelong partner, to which Winnie said YES!
+                We made a promise to always have each other’s backs, and to support each other in everything that we do. With this promise, Ryan proposed to Winnie in December 2020 to commit as a lifelong partner, to which Winnie said YES!
             </div>
             <div class="our-story-description-text">
-                Now 2 years later… We are officially celebrating this commitment through our wedding!
+                Now… We are officially celebrating this commitment through our wedding!
             </div>
             <div class="our-story-description-text">
                 And so, with honour, we humbly request your wonderful presence at our wedding, and to share in an evening of joy in celebrating our marriage.
