@@ -11,8 +11,8 @@
                 <div class="rsvp-form-control">
                     <div class="rsvp-form-select">Attendance</div>
                     <select class="rsvp-form-select-value" v-model="form.is_attend">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option value="yes">Definitely, Yes!</option>
+                        <option value="no">Sorry, I can’t attend your wedding</option>
                     </select>
                 </div>
                 <div class="rsvp-form-control" v-if="form.is_attend == 'yes'">
