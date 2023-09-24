@@ -120,7 +120,6 @@
     .rsvp-form-disable {
         cursor: not-allowed;
         background: white;
-        opacity: 0.6;
     }
 
     .rsvp-confirmation-button {
