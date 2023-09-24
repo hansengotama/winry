@@ -23,7 +23,7 @@
 
 <style scoped>
     .countdown-background {
-        height: 350px;
+        height: 250px;
         background-image: url(@/../images/countdown.png);
         background-position: center;
         background-size: cover;
