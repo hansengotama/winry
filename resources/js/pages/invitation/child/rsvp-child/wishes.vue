@@ -90,6 +90,7 @@
 
     .wishes-wish {
         white-space: pre-line;
+        color: #5E5E5E;
     }
 
 
