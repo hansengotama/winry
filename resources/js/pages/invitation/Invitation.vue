@@ -1,6 +1,6 @@
 <template>
     <Transition name="slide-up">
-        <div class="opening" v-if="!isShowInvitation" >
+        <div class="opening" v-if="!isShowInvitation">
             <opening @viewInvitation="viewInvitation" :user="user" :fetch="isFetchInvitation"></opening>
         </div>
     </Transition>
