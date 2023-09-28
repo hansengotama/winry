@@ -16,7 +16,7 @@
             <our-story></our-story>
             <place-and-date></place-and-date>
             <countdown></countdown>
-            <rsvp-form :user="user" @getInvitationDetail="getInvitationDetail" v-if="isShowInvitation"></rsvp-form>
+            <rsvp-form :user="user" @getInvitationDetail="getInvitationDetail" ref="rsvpForm" v-if="isShowInvitation"></rsvp-form>
             <thank-you></thank-you>
             <invitation-footer></invitation-footer>
         </div>
@@ -91,7 +91,7 @@
             }
         },
         mounted() {
-            this.getInvitationDetail() 
+            this.getInvitationDetail(true) 
             this.initiateMusic()
             this.updateDot()
 
@@ -131,7 +131,7 @@
                 this.dot += ". ";
                 this.timeoutDot = setTimeout(this.updateDot, 500);
             },
-            getInvitationDetail() {
+            getInvitationDetail(isFromMounted) {
                 requestUrl.get("/invitations/" + this.getTokenFromURL()).then((response) => {
                     if (response.data == null) {
                         this.redirectToNotFound()
@@ -140,6 +140,10 @@
 
                     this.user = response.data.data
                     this.isFetchInvitation = false
+
+                    if (!isFromMounted) {
+                        this.$refs.rsvpForm.setGuessData(this.user)
+                    }
                 })
             },
             getTokenFromURL() {

@@ -31,7 +31,7 @@
                     <textarea class="rsvp-form-textarea-value" rows="4" v-model="form.wishes" placeholder="Enter you wishes" maxlength="350" @keyup="validateWishes()" :class="isFormStored ? 'rsvp-form-disable' : ''" :disabled="isFormStored"></textarea>
                     <div style="display: flex; justify-content: space-between; align-items: end;">
                         <div class="rsvp-form-error-message">{{ error.wishes }}</div>
-                        <div style="margin-top: 6px; font-size: 14px; color: #5E5E5E; opacity: 0.4;">{{ form.wishes.length }}/350</div>
+                        <div style="margin-top: 6px; font-size: 14px; color: #5E5E5E; opacity: 0.4;">{{ form.wishes != null ? form.wishes.length : 0 }}/350</div>
                     </div>
                 </div>
                 <div class="rsvp-form-control">
@@ -294,7 +294,7 @@
                     wishes_icon_type: this.form.icon_type,
                 }).then((response) => {
                     if (response.status == 200) {
-                        this.$emit('getInvitationDetail')
+                        this.$emit('getInvitationDetail', false)
                         this.$refs.wishes.getWishes()
                         this.showSuccessModal()
                         return
@@ -322,6 +322,10 @@
                 window.scrollTo(0, parseInt(scrollY || '0') * -1);
             },
             setGuessData(data) {
+                if (data.is_attend == null) {
+                    return
+                }
+
                 this.isFormStored = true
 
                 this.form.is_attend = data.is_attend ? "yes" : "no"
