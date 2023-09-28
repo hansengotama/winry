@@ -99,7 +99,9 @@
                 this.isLoading = false
             }
 
-            window.addEventListener('load', this.isLoading = false)
+            window.addEventListener('load', () => {
+                this.isLoading = false
+            })
         },
         components: {
             Opening: Opening,
