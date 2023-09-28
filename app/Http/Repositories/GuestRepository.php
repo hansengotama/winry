@@ -73,6 +73,6 @@ class GuestRepository {
     }
 
     public function getWishes() {
-        return Guest::where("is_show_wishes", true)->whereNotNull("wishes")->get();
+        return Guest::where("is_show_wishes", true)->whereNotNull("wishes")->orderBy('updated_at', 'desc')->get();
     }
 }
