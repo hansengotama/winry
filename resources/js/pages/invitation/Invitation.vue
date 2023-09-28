@@ -1,20 +1,25 @@
 <template>
-    <Transition name="slide-up">
-        <div class="opening" v-if="!isShowInvitation">
-            <opening @viewInvitation="viewInvitation" :user="user" :fetch="isFetchInvitation"></opening>
-        </div>
-    </Transition>
+    <div v-show="isLoading">
+        Loading
+    </div>
+    <div v-show="!isLoading">
+        <Transition name="slide-up">
+            <div class="opening" v-if="!isShowInvitation">
+                <opening @viewInvitation="viewInvitation" :user="user" :fetch="isFetchInvitation"></opening>
+            </div>
+        </Transition>
 
-    <div class="invitation-detail" v-show="isShowInvitation">
-        <music @playAndPauseMusic="playAndPauseMusic" :isAudioPlay="isAudioPlay"></music>
-        <introduction></introduction>
-        <groom-and-bride></groom-and-bride>
-        <our-story></our-story>
-        <place-and-date></place-and-date>
-        <countdown></countdown>
-        <rsvp-form :user="user" @getInvitationDetail="getInvitationDetail" v-if="isShowInvitation"></rsvp-form>
-        <thank-you></thank-you>
-        <invitation-footer></invitation-footer>
+        <div class="invitation-detail" v-show="isShowInvitation">
+            <music @playAndPauseMusic="playAndPauseMusic" :isAudioPlay="isAudioPlay"></music>
+            <introduction></introduction>
+            <groom-and-bride></groom-and-bride>
+            <our-story></our-story>
+            <place-and-date></place-and-date>
+            <countdown></countdown>
+            <rsvp-form :user="user" @getInvitationDetail="getInvitationDetail" v-if="isShowInvitation"></rsvp-form>
+            <thank-you></thank-you>
+            <invitation-footer></invitation-footer>
+        </div>
     </div>
 </template>
 
@@ -79,17 +84,18 @@
                 isShowInvitation: false,
                 audio: new Audio("/musics/la-vie-en-rose.mp3"),
                 isAudioPlay: false,
-                isFetchInvitation: true
+                isFetchInvitation: true,
+                isLoading: true,
             }
         },
         mounted() {
             this.getInvitationDetail() 
             this.initiateMusic()
 
-            console.log("document load")
-            window.onload = function() {
-                console.log("document loaded")
+            window.onload = () => {
+                this.isLoading = false
             }
+
         },
         components: {
             Opening: Opening,
