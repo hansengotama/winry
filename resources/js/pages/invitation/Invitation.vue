@@ -85,6 +85,11 @@
         mounted() {
             this.getInvitationDetail() 
             this.initiateMusic()
+
+            console.log("document load")
+            document.addEventListener("DOMContentLoaded", function() {
+                console.log("document loaded")
+            })
         },
         components: {
             Opening: Opening,
