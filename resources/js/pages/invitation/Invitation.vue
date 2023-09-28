@@ -92,7 +92,9 @@
             this.getInvitationDetail() 
             this.initiateMusic()
 
+            console.log("window load...")
             window.onload = () => {
+                console.log("window loaded")
                 this.isLoading = false
             }
 
