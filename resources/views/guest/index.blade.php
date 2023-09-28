@@ -6,7 +6,6 @@
 
         <title>WINRY | Wedding Invitation</title>
         <link rel="icon" href="/images/logo.png">
-        <link ref="preload" href="https://wedding.winry5g.com/build/assets/image_w_1-92d94a33.JPG"></link>        
         <style>
             html, body {
                 margin: 0;

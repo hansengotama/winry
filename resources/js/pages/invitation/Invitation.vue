@@ -1,6 +1,6 @@
 <template>
-    <div v-show="isLoading">
-        Loading
+    <div style="width: 100%; display: flex; align-items: center; justify-content: center; height: 100vh; background: #E3E5DA; font-size: 24px; color: #5E5E5E; font-weight: 700;" v-show="isLoading">
+        <div style="width: 117px;">Loading {{ dot }}</div> 
     </div>
     <div v-show="!isLoading">
         <Transition name="slide-up">
@@ -86,11 +86,14 @@
                 isAudioPlay: false,
                 isFetchInvitation: true,
                 isLoading: true,
+                dot: "",
+                timeoutDot: null,
             }
         },
         mounted() {
             this.getInvitationDetail() 
             this.initiateMusic()
+            this.updateDot()
 
             window.onload = () => {
                 this.isLoading = false
@@ -109,6 +112,20 @@
             InvitationFooter: Footer,
         },
         methods: {
+            updateDot() {
+                if (!this.isLoading) {
+                    return
+                }
+
+                if (this.dot.length > 7) {
+                    this.dot = ""
+                    this.timeoutDot = setTimeout(this.updateDot, 500);
+                    return;
+                }
+
+                this.dot += ". ";
+                this.timeoutDot = setTimeout(this.updateDot, 500);
+            },
             getInvitationDetail() {
                 requestUrl.get("/invitations/" + this.getTokenFromURL()).then((response) => {
                     if (response.data == null) {
