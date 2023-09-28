@@ -8,7 +8,7 @@
         <div class="view-invitation">
             <div class="view-invitation-greeting-1">Dear {{this.user.name}},</div>
             <div class="view-invitation-greeting-2">We humbly invite you to be a part of our joyous celebration of love.</div>
-            <button class="view-invitation-btn" @click="viewInvitation()">View e-invitation</button>
+            <button class="view-invitation-btn" @click="viewInvitation()" v-if="!fetch">View e-invitation</button>
         </div>
     </div>
 </template>
@@ -125,7 +125,7 @@
 
 <script>
     export default {
-        props: ['user'],
+        props: ['user', 'fetch'],
         methods: {
             viewInvitation() {
                 this.$emit('viewInvitation')

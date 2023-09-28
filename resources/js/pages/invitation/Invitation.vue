@@ -1,18 +1,18 @@
 <template>
     <Transition name="slide-up">
-        <div class="opening" v-if="!isShowInvitation">
-            <opening @viewInvitation="viewInvitation" :user="user"></opening>
+        <div class="opening" v-if="!isShowInvitation" >
+            <opening @viewInvitation="viewInvitation" :user="user" :fetch="isFetchInvitation"></opening>
         </div>
     </Transition>
 
-    <div class="invitation-detail" v-show="isShowInvitation">
+    <div class="invitation-detail" v-if="isShowInvitation">
         <music @playAndPauseMusic="playAndPauseMusic" :isAudioPlay="isAudioPlay"></music>
         <introduction></introduction>
         <groom-and-bride></groom-and-bride>
         <our-story></our-story>
         <place-and-date></place-and-date>
         <countdown></countdown>
-        <rsvp-form :user="user" ref="rsvpform" @getInvitationDetail="getInvitationDetail"></rsvp-form>
+        <rsvp-form :user="user" @getInvitationDetail="getInvitationDetail"></rsvp-form>
         <thank-you></thank-you>
         <invitation-footer></invitation-footer>
     </div>
@@ -79,6 +79,7 @@
                 isShowInvitation: false,
                 audio: new Audio("/musics/la-vie-en-rose.mp3"),
                 isAudioPlay: false,
+                isFetchInvitation: true
             }
         },
         mounted() {
@@ -106,9 +107,7 @@
                     }
 
                     this.user = response.data.data
-                    if (this.user.is_attend != null) {
-                        this.$refs.rsvpform.setGuessData(this.user)
-                    }
+                    this.isFetchInvitation = false
                 })
             },
             getTokenFromURL() {

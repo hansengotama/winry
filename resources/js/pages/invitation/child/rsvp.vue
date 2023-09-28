@@ -216,6 +216,9 @@
             FailedRsvpModal: FailedRsvpModal,
             Wishes: Wishes,
         },
+        mounted() {
+            this.setGuessData(this.user)
+        },
         methods: {
             confirmation() {
                 this.isSubmitted = true

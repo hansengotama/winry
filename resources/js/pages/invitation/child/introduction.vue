@@ -5,9 +5,6 @@
                 <div class="introduction-title-text">THE WEDDING OF</div>
                 <div class="introduction-title-name">Ryan &amp; Winnie</div>
             </div>
-            <!-- <div class="introduction-description">
-                “And I knew exactly how old Walt Disney’s Cinderella felt when she found her prince.” —Elizabeth Young
-            </div> -->
         </div>
     </div>
 </template>
