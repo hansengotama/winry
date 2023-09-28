@@ -87,9 +87,9 @@
             this.initiateMusic()
 
             console.log("document load")
-            document.addEventListener("load", function() {
+            window.onload = function() {
                 console.log("document loaded")
-            })
+            }
         },
         components: {
             Opening: Opening,
