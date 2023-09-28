@@ -95,13 +95,14 @@
             this.initiateMusic()
             this.updateDot()
 
-            window.onload = () => {
-                this.isLoading = false
-            }
+            this.isLoading = false
+            // window.onload = () => {
+            //     this.isLoading = false
+            // }
 
-            window.addEventListener('load', () => {
-                this.isLoading = false
-            })
+            // window.addEventListener('load', () => {
+            //     this.isLoading = false
+            // })
         },
         components: {
             Opening: Opening,
