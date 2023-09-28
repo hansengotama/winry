@@ -5,14 +5,14 @@
         </div>
     </Transition>
 
-    <div class="invitation-detail" v-if="isShowInvitation">
+    <div class="invitation-detail" v-show="isShowInvitation">
         <music @playAndPauseMusic="playAndPauseMusic" :isAudioPlay="isAudioPlay"></music>
         <introduction></introduction>
         <groom-and-bride></groom-and-bride>
         <our-story></our-story>
         <place-and-date></place-and-date>
         <countdown></countdown>
-        <rsvp-form :user="user" @getInvitationDetail="getInvitationDetail"></rsvp-form>
+        <rsvp-form :user="user" @getInvitationDetail="getInvitationDetail" v-if="isShowInvitation"></rsvp-form>
         <thank-you></thank-you>
         <invitation-footer></invitation-footer>
     </div>
