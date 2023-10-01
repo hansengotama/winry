@@ -8,7 +8,7 @@
                     <div class="groom-detail">
                         <div class="groom-name">Ryan Chan</div>
                         <div class="groom-son-of">Son Of</div>
-                        <div class="groom-son-of-value">Ivan Cheung Tak Wai & Avy Lim Yeun Leang</div>
+                        <div class="groom-son-of-value">Ivan & Avy</div>
                     </div>
                 </div>
                 <div class="bride-container">
